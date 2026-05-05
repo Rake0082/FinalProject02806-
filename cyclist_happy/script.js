@@ -13,7 +13,7 @@ const changeBtn     = document.getElementById('change-btn');
 let currentMode = "";
 let scrollamaReady = false;
 
-// ── NYC map background ───────────────────────────────────────────────────────
+// ── NYC map background — draws itself on load ────────────────────────────────
 (function drawNYCMap() {
     const svg    = d3.select('#nyc-map-bg');
     const width  = window.innerWidth;
@@ -21,16 +21,28 @@ let scrollamaReady = false;
 
     svg.attr('viewBox', `0 0 ${width} ${height}`);
 
-    const projection = d3.geoMercator().fitSize([width, height], { type: 'Sphere' });
-
     d3.json('nyc.geojson').then(data => {
-        projection.fitSize([width, height], data);
+        const projection = d3.geoMercator().fitSize([width, height], data);
         const path = d3.geoPath().projection(projection);
-        svg.selectAll('path')
+
+        const paths = svg.selectAll('path')
             .data(data.features)
             .enter()
             .append('path')
             .attr('d', path);
+
+        // For each path, measure its length and set up the drawing animation.
+        // stroke-dasharray = total length  → whole stroke is one invisible dash gap
+        // stroke-dashoffset = total length → stroke starts fully hidden
+        // Animating dashoffset → 0 reveals the stroke as if being drawn by a pen.
+        paths.each(function (d, i) {
+            const len = this.getTotalLength();
+            d3.select(this)
+                .attr('stroke-dasharray', len)
+                .attr('stroke-dashoffset', len)
+                .style('animation', `draw-path 2.5s ease forwards`)
+                .style('animation-delay', `${i * 0.18}s`);
+        });
     });
 })();
 
