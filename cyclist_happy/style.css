@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Space+Mono&family=Public+Sans:wght@300;400;700&display=swap');
 
 :root {
-    --bg-color: #f9f7f2;
-    --text-color: #1a1a1a;
-    --accent-color: #ff4d4d;
-    --font-header: 'Space Grotesk', sans-serif;
-    --font-body: 'Public Sans', sans-serif;
-    --font-mono: 'Space Mono', monospace;
+    --bg-color:     #f9f7f2;
+    --text-color:   #1a1a1a;
+    --accent-color: #9D5C58;
+    --font-header:  'Space Grotesk', sans-serif;
+    --font-body:    'Public Sans', sans-serif;
+    --font-mono:    'Space Mono', monospace;
 }
 
 body {
@@ -16,14 +16,37 @@ body {
     color: var(--text-color);
 }
 
-/* --- INTRO & VALG --- */
+/* ── NYC map background SVG ── */
+#nyc-map-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.18;
+}
+
+#nyc-map-bg path {
+    fill: none;
+    stroke: #b0a090;
+    stroke-width: 1.2px;
+}
+
+/* ── INTRO ── */
 #intro {
+    position: relative;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    overflow: hidden;
+}
+
+#intro-content {
+    position: relative;
+    z-index: 1;
 }
 
 #intro h1 {
@@ -61,7 +84,7 @@ body {
 
 .img-hover { opacity: 0; }
 .choice:hover .img-static { opacity: 0; }
-.choice:hover .img-hover { opacity: 1; }
+.choice:hover .img-hover  { opacity: 1; }
 
 .choice span {
     display: block;
@@ -70,30 +93,58 @@ body {
     font-weight: bold;
 }
 
-.fade-out { opacity: 0.2; filter: grayscale(1); pointer-events: none; }
+/* Faded choices are dimmed but still clickable so user can switch */
+.fade-out {
+    opacity: 0.25;
+    filter: grayscale(1);
+}
 
 .selected-shake {
     animation: shake 0.6s ease-in-out forwards;
 }
 
 @keyframes shake {
-    0%, 100% { transform: scale(1.2) rotate(0); }
-    20% { transform: scale(1.2) rotate(-5deg); }
-    40% { transform: scale(1.2) rotate(5deg); }
-    60% { transform: scale(1.2) rotate(-3deg); }
-    80% { transform: scale(1.2) rotate(3deg); }
+    0%,100% { transform: scale(1.2) rotate(0); }
+    20%      { transform: scale(1.2) rotate(-5deg); }
+    40%      { transform: scale(1.2) rotate(5deg); }
+    60%      { transform: scale(1.2) rotate(-3deg); }
+    80%      { transform: scale(1.2) rotate(3deg); }
 }
 
-#scroll-prompt { margin-top: 50px; font-family: var(--font-mono); }
-.arrow { font-size: 2rem; animation: bounce 2s infinite; }
+/* ── Scroll prompt & change button ── */
+#scroll-prompt {
+    margin-top: 50px;
+    font-family: var(--font-mono);
+}
+
+#change-btn {
+    background: none;
+    border: 1.5px solid var(--accent-color);
+    color: var(--accent-color);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    padding: 3px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+#change-btn:hover {
+    background: var(--accent-color);
+    color: white;
+}
+
+.arrow {
+    font-size: 2rem;
+    animation: bounce 2s infinite;
+}
 
 @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-    40% {transform: translateY(-10px);}
-    60% {transform: translateY(-5px);}
+    0%,20%,50%,80%,100% { transform: translateY(0); }
+    40%                  { transform: translateY(-10px); }
+    60%                  { transform: translateY(-5px); }
 }
 
-/* --- THE HOOK --- */
+/* ── HOOK ── */
 #story-hook {
     height: 100vh;
     display: flex;
@@ -113,19 +164,19 @@ body {
     margin-bottom: 20px;
 }
 
-/* --- SCROLLYTELLING (3 columns) --- */
+/* ── SCROLLYTELLING (2 columns, no character column) ── */
 #scrolly-container {
     display: flex;
     justify-content: space-between;
     position: relative;
-    padding: 0 2vw;
+    padding: 0 4vw;
     min-height: 200vh;
 }
 
 .sticky-plot {
     position: sticky;
     top: 10vh;
-    width: 45%;
+    width: 58%;
     height: 80vh;
     display: flex;
     flex-direction: column;
@@ -137,11 +188,11 @@ body {
     height: 100%;
     background: white;
     padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
 }
 
-#plot-frame { width: 100%; height: 90%; }
+#plot-frame { width: 100%; height: 90%; border: none; }
 
 .figure-caption {
     font-family: var(--font-mono);
@@ -150,28 +201,35 @@ body {
     color: #666;
 }
 
-.scroll-text {
-    width: 30%;
-}
+.scroll-text { width: 36%; }
 
 .step {
     margin-bottom: 100vh;
     padding: 40px 20px;
 }
 
-.sticky-char {
-    position: sticky;
-    top: 50vh;
-    width: 15%;
-    height: 40vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* ── Floating character ── */
+#floating-char {
+    position: fixed;
+    bottom: 5vh;
+    right: 3vw;
+    z-index: 100;
+    width: 130px;
+    pointer-events: none;
+    transition: opacity 0.5s, transform 0.5s;
+    opacity: 0;
+    transform: translateY(20px);
 }
 
-#happy-char-img {
-    width: 150px;
+#floating-char.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#floating-char-img {
+    width: 100%;
     height: auto;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.12));
 }
 
 .hidden { display: none !important; }

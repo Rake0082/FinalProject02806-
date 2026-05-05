@@ -8,49 +8,53 @@
 </head>
 <body>
 
-    <!-- SECTION 1: START / VALG -->
+    <!-- ── Floating character (appears on every section) ── -->
+    <div id="floating-char" class="hidden">
+        <img id="floating-char-img" src="" alt="Character">
+    </div>
+
+    <!-- SECTION 1: INTRO / CHOICE -->
     <section id="intro">
-        <h1>NYC Traffic Collisions</h1>
-        <p class="subtitle">A data-driven story about danger, urban planning, and human lives.</p>
-        
-        <p>Choose your perspective to begin:</p>
-        
-        <div id="choice-container">
-            <!-- Cyclist Path -->
-            <div class="choice" data-perspective="cyclist">
-                <div class="image-stack">
-                    <img src="cyclist_neutral.svg" class="img-static" alt="Cyclist">
-                    <img src="cyclist_neutral_moving_in_place.svg" class="img-hover" alt="Cyclist moving">
+        <!-- NYC map drawn here by D3 -->
+        <svg id="nyc-map-bg" aria-hidden="true"></svg>
+
+        <div id="intro-content">
+            <h1>NYC Traffic Collisions</h1>
+            <p class="subtitle">A data-driven story about danger, urban planning, and human lives.</p>
+            <p>Choose your perspective to begin:</p>
+
+            <div id="choice-container">
+                <div class="choice" data-perspective="cyclist">
+                    <div class="image-stack">
+                        <img src="cyclist_neutral.svg" class="img-static" alt="Cyclist">
+                        <img src="cyclist_neutral_moving_in_place.svg" class="img-hover" alt="Cyclist moving">
+                    </div>
+                    <span>Cyclist</span>
                 </div>
-                <span>Cyclist</span>
+                <div class="choice" data-perspective="pedestrian">
+                    <div class="image-stack">
+                        <img src="pedestrian_neutral.svg" class="img-static" alt="Pedestrian">
+                        <img src="pedestrian_neutral_walking_in_place.svg" class="img-hover" alt="Pedestrian moving">
+                    </div>
+                    <span>Pedestrian</span>
+                </div>
+                <div class="choice" data-perspective="motorist">
+                    <div class="image-stack">
+                        <img src="driver_neutral.svg" class="img-static" alt="Motorist">
+                        <img src="driver_neutral_idle_in_place.svg" class="img-hover" alt="Motorist moving">
+                    </div>
+                    <span>Motorist</span>
+                </div>
             </div>
 
-            <!-- Pedestrian Path -->
-            <div class="choice" data-perspective="pedestrian">
-                <div class="image-stack">
-                    <img src="pedestrian_neutral.svg" class="img-static" alt="Pedestrian">
-                    <img src="pedestrian_neutral_walking_in_place.svg" class="img-hover" alt="Pedestrian moving">
-                </div>
-                <span>Pedestrian</span>
+            <div id="scroll-prompt" class="hidden">
+                <p>Scroll to start the story &nbsp;·&nbsp; <button id="change-btn">Change perspective</button></p>
+                <div class="arrow">↓</div>
             </div>
-
-            <!-- Motorist Path (Bruger driver billeder jf. dit billede) -->
-            <div class="choice" data-perspective="motorist">
-                <div class="image-stack">
-                    <img src="driver_neutral.svg" class="img-static" alt="Motorist">
-                    <img src="driver_neutral_idle_in_place.svg" class="img-hover" alt="Motorist moving">
-                </div>
-                <span>Motorist</span>
-            </div>
-        </div>
-
-        <div id="scroll-prompt" class="hidden">
-            <p>Scroll to start the story</p>
-            <div class="arrow">↓</div>
         </div>
     </section>
 
-    <!-- SECTION 2: THE HOOK (Fuld skærm tekst) -->
+    <!-- SECTION 2: THE HOOK -->
     <section id="story-hook" class="hidden">
         <div class="hook-container">
             <h2 id="hook-title">Every day in New York City...</h2>
@@ -58,10 +62,10 @@
         </div>
     </section>
 
-    <!-- SECTION 3: SCROLLYTELLING (3-kolonne layout) -->
+    <!-- SECTION 3: SCROLLYTELLING (2 columns — no character column) -->
     <main id="scrolly-container" class="hidden">
-        
-        <!-- VENSTRE: Sticky Plot -->
+
+        <!-- LEFT: Sticky plot -->
         <div class="sticky-plot">
             <div class="plot-wrapper">
                 <iframe id="plot-frame" src="" frameborder="0"></iframe>
@@ -69,24 +73,18 @@
             </div>
         </div>
 
-        <!-- MIDTE: Scrolling Tekst -->
+        <!-- CENTRE: Scrolling text -->
         <article class="scroll-text">
             <div class="step" data-step="1">
                 <h3 id="step-title">The Rhythm of the Streets</h3>
-                <p id="step-description">When we look at the hourly data, we see clear patterns. The rush hour isn't just a time for traffic—it's a peak time for danger.</p>
+                <p id="step-description">When we look at the hourly data, we see clear patterns. The rush hour isn't just a time for traffic — it's a peak time for danger.</p>
             </div>
         </article>
-
-        <!-- HØJRE: Sticky Karakter -->
-        <div class="sticky-char">
-            <div id="happy-char-container">
-                <img id="happy-char-img" src="" alt="Happy Character">
-            </div>
-        </div>
 
     </main>
 
     <script src="https://unpkg.com/scrollama"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

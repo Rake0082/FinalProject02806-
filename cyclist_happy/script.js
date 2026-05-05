@@ -1,61 +1,116 @@
 const scroller = scrollama();
 
-const choices = document.querySelectorAll('.choice');
-const scrollPrompt = document.getElementById('scroll-prompt');
-const storyHook = document.getElementById('story-hook');
-const scrollyContainer = document.getElementById('scrolly-container');
-
-const plotFrame = document.getElementById('plot-frame');
-const happyCharImg = document.getElementById('happy-char-img');
-const hookTitle = document.getElementById('hook-title');
+const choices       = document.querySelectorAll('.choice');
+const scrollPrompt  = document.getElementById('scroll-prompt');
+const storyHook     = document.getElementById('story-hook');
+const scrollyCont   = document.getElementById('scrolly-container');
+const plotFrame     = document.getElementById('plot-frame');
+const floatingChar  = document.getElementById('floating-char');
+const floatingImg   = document.getElementById('floating-char-img');
+const hookTitle     = document.getElementById('hook-title');
+const changeBtn     = document.getElementById('change-btn');
 
 let currentMode = "";
+let scrollamaReady = false;
 
+// ── NYC map background ───────────────────────────────────────────────────────
+(function drawNYCMap() {
+    const svg    = d3.select('#nyc-map-bg');
+    const width  = window.innerWidth;
+    const height = window.innerHeight;
+
+    svg.attr('viewBox', `0 0 ${width} ${height}`);
+
+    const projection = d3.geoMercator().fitSize([width, height], { type: 'Sphere' });
+
+    d3.json('nyc.geojson').then(data => {
+        projection.fitSize([width, height], data);
+        const path = d3.geoPath().projection(projection);
+        svg.selectAll('path')
+            .data(data.features)
+            .enter()
+            .append('path')
+            .attr('d', path);
+    });
+})();
+
+// ── Character helper ─────────────────────────────────────────────────────────
+function setCharacter(mode, emotion) {
+    const prefix = mode === 'motorist' ? 'driver' : mode;
+    floatingImg.src = `${prefix}_${emotion}.svg`;
+}
+
+function showCharacter() {
+    floatingChar.classList.remove('hidden');
+    // Small delay so CSS transition fires
+    requestAnimationFrame(() => floatingChar.classList.add('visible'));
+}
+
+// ── Reset selection so user can switch persona ───────────────────────────────
+function resetSelection() {
+    choices.forEach(c => {
+        c.classList.remove('fade-out', 'selected-shake');
+    });
+    scrollPrompt.classList.add('hidden');
+    storyHook.classList.add('hidden');
+    scrollyCont.classList.add('hidden');
+    floatingChar.classList.remove('visible');
+    setTimeout(() => floatingChar.classList.add('hidden'), 500);
+    currentMode = '';
+}
+
+changeBtn.addEventListener('click', resetSelection);
+
+// ── Persona selection ────────────────────────────────────────────────────────
 choices.forEach(choice => {
     choice.addEventListener('click', () => {
-        currentMode = choice.getAttribute('data-perspective');
+        const mode = choice.getAttribute('data-perspective');
 
-        // 1. Feedback på klik
-        choices.forEach(c => c.classList.add('fade-out'));
+        // If same persona clicked again, ignore
+        if (mode === currentMode) return;
+
+        currentMode = mode;
+
+        // Dim others, animate selected
+        choices.forEach(c => {
+            c.classList.remove('selected-shake');
+            c.classList.add('fade-out');
+        });
         choice.classList.remove('fade-out');
         choice.classList.add('selected-shake');
 
-        // 2. Fjern hidden klasser med det samme
+        // Show sections
         storyHook.classList.remove('hidden');
-        scrollyContainer.classList.remove('hidden');
+        scrollyCont.classList.remove('hidden');
         scrollPrompt.classList.remove('hidden');
 
-        // 3. Forbered indholdet
-        prepareContent(currentMode);
-        
-        // 4. Start Scrollama
-        initScrollama();
+        // Load content
+        plotFrame.src = `${mode}_hourly_plot.html`;
+        hookTitle.innerText = `The streets of NYC from a ${mode}'s perspective...`;
+
+        // Show floating character
+        setCharacter(mode, 'happy');
+        showCharacter();
+
+        // Init scrollama once
+        if (!scrollamaReady) {
+            initScrollama();
+            scrollamaReady = true;
+        }
     });
 });
 
-function prepareContent(mode) {
-    // Sæt plottet (motorist_hourly_plot.html findes i din liste)
-    plotFrame.src = `${mode}_hourly_plot.html`;
-
-    // Sæt karakteren (hvis det er motorist, skal vi bruge driver filen)
-    let filePrefix = mode === "motorist" ? "driver" : mode;
-    happyCharImg.src = `${filePrefix}_happy.svg`;
-
-    // Opdater overskrift i hook
-    hookTitle.innerText = `The streets of NYC from a ${mode}'s perspective...`;
-}
-
+// ── Scrollama ────────────────────────────────────────────────────────────────
 function initScrollama() {
     scroller
-        .setup({
-            step: ".step",
-            offset: 0.7,
-            debug: false
-        })
+        .setup({ step: '.step', offset: 0.6, debug: false })
         .onStepEnter(response => {
-            response.element.classList.add("is-active");
-            console.log("Enter:", response.index);
+            response.element.classList.add('is-active');
+            // Swap character emotion per step
+            const emotions = ['thinking', 'surprised', 'scared', 'happy'];
+            const emotion  = emotions[response.index % emotions.length];
+            if (currentMode) setCharacter(currentMode, emotion);
         });
 }
 
-window.addEventListener("resize", scroller.resize);
+window.addEventListener('resize', scroller.resize);
