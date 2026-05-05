@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYC Collision Story</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- SECTION 1: START / VALG -->
+    <section id="intro">
+        <h1>NYC Traffic Collisions</h1>
+        <p class="subtitle">A data-driven story about danger, urban planning, and human lives.</p>
+        
+        <p>Choose your perspective to begin:</p>
+        
+        <div id="choice-container">
+            <!-- Cyclist Path -->
+            <div class="choice" data-perspective="cyclist">
+                <div class="image-stack">
+                    <img src="cyclist_neutral.svg" class="img-static" alt="Cyclist">
+                    <img src="cyclist_neutral_moving_in_place.svg" class="img-hover" alt="Cyclist moving">
+                </div>
+                <span>Cyclist</span>
+            </div>
+
+            <!-- Pedestrian Path -->
+            <div class="choice" data-perspective="pedestrian">
+                <div class="image-stack">
+                    <img src="pedestrian_neutral.svg" class="img-static" alt="Pedestrian">
+                    <img src="pedestrian_neutral_walking_in_place.svg" class="img-hover" alt="Pedestrian moving">
+                </div>
+                <span>Pedestrian</span>
+            </div>
+
+            <!-- Motorist Path (Bruger driver billeder jf. dit billede) -->
+            <div class="choice" data-perspective="motorist">
+                <div class="image-stack">
+                    <img src="driver_neutral.svg" class="img-static" alt="Motorist">
+                    <img src="driver_neutral_idle_in_place.svg" class="img-hover" alt="Motorist moving">
+                </div>
+                <span>Motorist</span>
+            </div>
+        </div>
+
+        <div id="scroll-prompt" class="hidden">
+            <p>Scroll to start the story</p>
+            <div class="arrow">↓</div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: THE HOOK (Fuld skærm tekst) -->
+    <section id="story-hook" class="hidden">
+        <div class="hook-container">
+            <h2 id="hook-title">Every day in New York City...</h2>
+            <p id="hook-text">Hundreds of paths cross. Most end safely, but for some, the journey is interrupted by a split second of chaos. Let's look at the numbers.</p>
+        </div>
+    </section>
+
+    <!-- SECTION 3: SCROLLYTELLING (3-kolonne layout) -->
+    <main id="scrolly-container" class="hidden">
+        
+        <!-- VENSTRE: Sticky Plot -->
+        <div class="sticky-plot">
+            <div class="plot-wrapper">
+                <iframe id="plot-frame" src="" frameborder="0"></iframe>
+                <p class="figure-caption" id="plot-caption">Figure 1: Distribution of collisions throughout the day.</p>
+            </div>
+        </div>
+
+        <!-- MIDTE: Scrolling Tekst -->
+        <article class="scroll-text">
+            <div class="step" data-step="1">
+                <h3 id="step-title">The Rhythm of the Streets</h3>
+                <p id="step-description">When we look at the hourly data, we see clear patterns. The rush hour isn't just a time for traffic—it's a peak time for danger.</p>
+            </div>
+        </article>
+
+        <!-- HØJRE: Sticky Karakter -->
+        <div class="sticky-char">
+            <div id="happy-char-container">
+                <img id="happy-char-img" src="" alt="Happy Character">
+            </div>
+        </div>
+
+    </main>
+
+    <script src="https://unpkg.com/scrollama"></script>
+    <script src="script.js"></script>
+</body>
+</html>
