@@ -3,38 +3,319 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NYC Motor Vehicle Collisions</title>
+  <title>NYC Crashes — Who gets hurt, where, and why</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    body {
-      margin: 0;
-      font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
-      background: #fff;
-      color: #1a1a1a;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent:  #9D5C58;
+      --accent2: #c4a258;
+      --text:    #1a1a1a;
+      --muted:   #666;
+      --bg:      #fff;
+      --section: #faf8f7;
+      --cyclist:    #5c85a4;
+      --pedestrian: #9D5C58;
+      --motorist:   #c4a258;
     }
-    header {
-      background: #9D5C58;
+
+    body {
+      font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: var(--accent);
       color: white;
-      padding: 3rem 2rem;
+      padding: 6rem 2rem 5rem;
       text-align: center;
     }
-    header h1 { margin: 0; font-size: 2.4rem; }
-    header p  { margin: 0.5rem 0 0; opacity: 0.85; font-size: 1.1rem; }
-    main {
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      opacity: 0.88;
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+    }
+
+    /* ── Persona picker ── */
+    .persona-bar {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .persona-btn {
+      padding: 0.65rem 1.8rem;
+      border-radius: 999px;
+      border: 2px solid rgba(255,255,255,0.5);
+      background: transparent;
+      color: white;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .persona-btn:hover,
+    .persona-btn.active {
+      background: white;
+      border-color: white;
+    }
+    .persona-btn.active[data-persona="cyclist"]    { color: var(--cyclist); }
+    .persona-btn.active[data-persona="pedestrian"] { color: var(--pedestrian); }
+    .persona-btn.active[data-persona="motorist"]   { color: var(--motorist); }
+
+    /* ── Sections ── */
+    section {
+      padding: 5rem 2rem;
+    }
+    section:nth-child(even) { background: var(--section); }
+
+    .container {
       max-width: 900px;
       margin: 0 auto;
-      padding: 3rem 2rem;
     }
-    h2 { color: #9D5C58; }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .lead {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 680px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── Plot iframe ── */
+    .plot-wrap {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      background: white;
+      margin-bottom: 1rem;
+    }
+    .plot-wrap iframe {
+      width: 100%;
+      height: 520px;
+      border: none;
+      display: block;
+    }
+    .plot-wrap iframe.tall { height: 640px; }
+
+    /* ── Persona tabs ── */
+    .tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      padding: 0.45rem 1.2rem;
+      border-radius: 999px;
+      border: 1.5px solid #ddd;
+      background: white;
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      color: var(--muted);
+      transition: all 0.18s;
+    }
+    .tab-btn.active[data-persona="cyclist"]    { background: var(--cyclist);    border-color: var(--cyclist);    color: white; }
+    .tab-btn.active[data-persona="pedestrian"] { background: var(--pedestrian); border-color: var(--pedestrian); color: white; }
+    .tab-btn.active[data-persona="motorist"]   { background: var(--motorist);   border-color: var(--motorist);   color: white; }
+
+    /* ── Stat row ── */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .stat-card {
+      background: white;
+      border-radius: 10px;
+      padding: 1.4rem 1.2rem;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+    }
+    .stat-card .num {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .stat-card .label { font-size: 0.88rem; color: var(--muted); }
+
+    /* ── Footer ── */
+    footer {
+      background: #1a1a1a;
+      color: #aaa;
+      text-align: center;
+      padding: 2.5rem 1rem;
+      font-size: 0.85rem;
+    }
+    footer a { color: var(--accent2); text-decoration: none; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>NYC Motor Vehicle Collisions</h1>
-    <p>Who gets hurt, where, and why — a data story</p>
-  </header>
-  <main>
-    <h2>Coming soon</h2>
-    <p>This site is under construction.</p>
-  </main>
+
+<!-- ── Hero ────────────────────────────────────────────────── -->
+<div class="hero">
+  <h1>NYC Motor Vehicle Collisions</h1>
+  <p>Over 2.25 million crashes. Who gets hurt, where do they happen, and what makes them fatal?</p>
+  <div class="persona-bar">
+    <button class="persona-btn active" data-persona="cyclist"    onclick="setPersona('cyclist')">🚴 Cyclist</button>
+    <button class="persona-btn"        data-persona="pedestrian" onclick="setPersona('pedestrian')">🚶 Pedestrian</button>
+    <button class="persona-btn"        data-persona="motorist"   onclick="setPersona('motorist')">🚗 Motorist</button>
+  </div>
+</div>
+
+<!-- ── Key numbers ──────────────────────────────────────────── -->
+<section>
+  <div class="container">
+    <div class="section-label">The data</div>
+    <h2>NYC crash data, 2012–2026</h2>
+    <p class="lead">Every crash reported by the NYPD, linked across three datasets: crashes, persons, and vehicles.</p>
+    <div class="stats-row">
+      <div class="stat-card"><div class="num">2.25M</div><div class="label">Total crashes</div></div>
+      <div class="stat-card"><div class="num">5.9M</div><div class="label">People involved</div></div>
+      <div class="stat-card"><div class="num">305K</div><div class="label">Cyclist crashes</div></div>
+      <div class="stat-card"><div class="num">123K</div><div class="label">Pedestrian crashes</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DBSCAN bubble map ─────────────────────────────────────── -->
+<section>
+  <div class="container">
+    <div class="section-label">Spatial clustering — DBSCAN</div>
+    <h2>Where are the danger zones?</h2>
+    <p class="lead">DBSCAN groups nearby crashes into recurring hotspots. Each bubble is a cluster — size shows crash volume, colour shows fatality rate. Hover to explore.</p>
+
+    <div class="tabs" id="map-tabs">
+      <button class="tab-btn active" data-persona="cyclist"    onclick="switchPlot('map','cyclist')">Cyclist</button>
+      <button class="tab-btn"        data-persona="pedestrian" onclick="switchPlot('map','pedestrian')">Pedestrian</button>
+      <button class="tab-btn"        data-persona="motorist"   onclick="switchPlot('map','motorist')">Motorist</button>
+    </div>
+    <div class="plot-wrap">
+      <iframe id="map-cyclist"    class="tall" src="plots/bubble_map_cyclist.html"></iframe>
+      <iframe id="map-pedestrian" class="tall" src="plots/bubble_map_pedestrian.html" style="display:none"></iframe>
+      <iframe id="map-motorist"   class="tall" src="plots/bubble_map_motorist.html"   style="display:none"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ── Random Forest ────────────────────────────────────────── -->
+<section>
+  <div class="container">
+    <div class="section-label">Machine learning — Random Forest</div>
+    <h2>What makes a crash fatal?</h2>
+    <p class="lead">A Random Forest classifier trained on 13 features predicts whether a crash results in death. The chart below shows which factors mattered most — for each persona separately.</p>
+
+    <div class="tabs" id="imp-tabs">
+      <button class="tab-btn active" data-persona="cyclist"    onclick="switchPlot('imp','cyclist')">Cyclist</button>
+      <button class="tab-btn"        data-persona="pedestrian" onclick="switchPlot('imp','pedestrian')">Pedestrian</button>
+      <button class="tab-btn"        data-persona="motorist"   onclick="switchPlot('imp','motorist')">Motorist</button>
+    </div>
+    <div class="plot-wrap">
+      <iframe id="imp-cyclist"    src="plots/rf_feature_importance_cyclist.html"></iframe>
+      <iframe id="imp-pedestrian" src="plots/rf_feature_importance_pedestrian.html" style="display:none"></iframe>
+      <iframe id="imp-motorist"   src="plots/rf_feature_importance_motorist.html"   style="display:none"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ── ROC + Age ─────────────────────────────────────────────── -->
+<section>
+  <div class="container">
+    <div class="section-label">Model performance</div>
+    <h2>How well does the model predict?</h2>
+    <p class="lead">The ROC curve shows how well each model separates fatal from non-fatal crashes. An AUC above 0.5 is better than random — all three models score above 0.80.</p>
+    <div class="plot-wrap">
+      <iframe src="plots/rf_roc_curves.html"></iframe>
+    </div>
+
+    <div class="section-label" style="margin-top:3rem">Age</div>
+    <h2>Does age change your risk?</h2>
+    <p class="lead">Fatality rate rises sharply with age — but the effect is far steeper for pedestrians than for cyclists or motorists.</p>
+    <div class="plot-wrap">
+      <iframe src="plots/rf_age_fatality.html"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ── Hour + Sex ────────────────────────────────────────────── -->
+<section>
+  <div class="container">
+    <div class="section-label">Time & demographics</div>
+    <h2>When are crashes most deadly?</h2>
+    <p class="lead">Rush hour has the most crashes — but late-night crashes (midnight–4 am) are disproportionately fatal across all three personas.</p>
+    <div class="plot-wrap">
+      <iframe src="plots/rf_hour_fatality.html"></iframe>
+    </div>
+
+    <div class="section-label" style="margin-top:3rem">Sex</div>
+    <h2>Men vs. women — who is more at risk?</h2>
+    <p class="lead">Given that a crash happened, are men or women more likely to die? The answer differs by persona.</p>
+    <div class="plot-wrap">
+      <iframe src="plots/rf_sex_fatality.html"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ───────────────────────────────────────────────── -->
+<footer>
+  Data: <a href="https://opendata.cityofnewyork.us/" target="_blank">NYC Open Data</a> — Motor Vehicle Collisions (NYPD) &nbsp;·&nbsp;
+  DTU Course 02806 Social Data Analysis and Visualization · 2026
+</footer>
+
+<script>
+  // ── Persona switcher (hero buttons) ─────────────────────────
+  function setPersona(p) {
+    document.querySelectorAll('.persona-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector(`.persona-btn[data-persona="${p}"]`).classList.add('active');
+    // Also sync all tab groups
+    ['map','imp'].forEach(group => switchPlot(group, p));
+  }
+
+  // ── Tab switcher for plot groups ─────────────────────────────
+  function switchPlot(group, persona) {
+    // Update tab buttons
+    document.querySelectorAll(`#${group}-tabs .tab-btn`).forEach(b => b.classList.remove('active'));
+    const btn = document.querySelector(`#${group}-tabs .tab-btn[data-persona="${persona}"]`);
+    if (btn) btn.classList.add('active');
+
+    // Show/hide iframes
+    ['cyclist','pedestrian','motorist'].forEach(p => {
+      const el = document.getElementById(`${group}-${p}`);
+      if (el) el.style.display = (p === persona) ? 'block' : 'none';
+    });
+  }
+</script>
+
 </body>
 </html>
