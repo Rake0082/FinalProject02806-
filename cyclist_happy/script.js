@@ -105,7 +105,7 @@ function showCharacter() {
 }
 
 // ── Load a story step ────────────────────────────────────────────────────────
-function loadStep(mode, stepIndex) {
+function loadStep(mode, stepIndex, showThought = true) {
     const steps = STORY[mode];
     if (!steps) return;
     const step = steps[stepIndex] || steps[steps.length - 1];
@@ -113,7 +113,7 @@ function loadStep(mode, stepIndex) {
     plotFrame.src    = step.plot;
     plotCaption.textContent = step.caption;
     setCharacter(mode, step.emotion);
-    setThought(step.thought);
+    if (showThought) setThought(step.thought);
 }
 
 // ── Reset so user can pick a different persona ───────────────────────────────
@@ -154,8 +154,8 @@ choices.forEach(choice => {
 
         hookTitle.innerText = `The streets of NYC from a ${mode}'s perspective...`;
 
-        // Load first step
-        loadStep(mode, 0);
+        // Load first step without showing thought bubble — it appears on scroll
+        loadStep(mode, 0, false);
         showCharacter();
 
         // Give the browser one frame to render the now-visible container,
