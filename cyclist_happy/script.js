@@ -6,6 +6,7 @@ const storyHook     = document.getElementById('story-hook');
 const scrollyCont   = document.getElementById('scrolly-container');
 const plotFrame     = document.getElementById('plot-frame');
 const plotCaption   = document.getElementById('plot-caption');
+const plotTitle     = document.getElementById('plot-title');
 const floatingChar  = document.getElementById('floating-char');
 const floatingImg   = document.getElementById('floating-char-img');
 const thoughtBubble = document.getElementById('thought-bubble');
@@ -24,6 +25,7 @@ const STORY = {
     cyclist: [
         {
             plot:    'cyclist_hourly_plot.html',
+            title:   'Crashes by Hour of Day',
             caption: 'Figure 1: Cyclist crashes by hour of day. The evening rush (16–18h) sees the highest volume, but late-night crashes carry a disproportionately high fatality rate.',
             emotion: 'thinking',
             thought: 'Rush hour... that\'s when cars stop looking out for me.',
@@ -32,6 +34,7 @@ const STORY = {
     pedestrian: [
         {
             plot:    'pedestrian_hourly_plot.html',
+            title:   'Crashes by Hour of Day',
             caption: 'Figure 1: Pedestrian crashes by hour of day. Most crashes happen during the evening commute, but midnight hours are when a single crash is most likely to be fatal.',
             emotion: 'thinking',
             thought: 'I thought daytime was safe... the data says otherwise.',
@@ -40,42 +43,49 @@ const STORY = {
     motorist: [
         {
             plot:    'motorist_hourly_plot.html',
+            title:   'Crashes by Hour of Day',
             caption: 'Figure 1: Motorist crashes by hour of day. Rush hour dominates crash volume — but the deadliest crashes happen long after traffic has cleared.',
             emotion: 'thinking',
             thought: 'Rush hour is stressful, but is it actually the most dangerous?',
         },
         {
             plot:    'risk_vs_reality_motorist_plot.html',
+            title:   'Risk vs. Reality',
             caption: 'Figure 2: Risk vs. reality for motorists. Crash volume and fatality rate tell very different stories — the hours you worry about may not be the ones that should worry you.',
             emotion: 'surprised',
             thought: 'Wait — late at night is when I\'m really at risk?',
         },
         {
             plot:    'weather_effect_motorist_plot.html',
+            title:   'Weather Effect on Daily Crashes',
             caption: 'Figure 3: Weather and motorist crashes. Winter storm days see far more crashes on average than clear days — slippery roads and reduced visibility change the game.',
             emotion: 'scared',
             thought: 'Snow days feel dangerous... and the data backs me up.',
         },
         {
             plot:    'bubble_map_motorist.html',
+            title:   'Motorist Danger Zones — NYC',
             caption: 'Figure 4: Motorist danger zones across NYC. Each bubble marks a crash cluster — size shows total crashes, colour shows fatality rate. The deadliest spots are not always the busiest.',
             emotion: 'surprised',
             thought: 'I drive these streets every day... I had no idea.',
         },
         {
             plot:    'rf_feature_importance_motorist.html',
+            title:   'What Factors Predict a Fatal Crash?',
             caption: 'Figure 5: What predicts a fatal motorist crash? A Random Forest model ranks the most important factors — some are obvious, others are not.',
             emotion: 'thinking',
             thought: 'So what actually decides whether I make it home?',
         },
         {
             plot:    'rf_vehicle_type_motorist.html',
+            title:   'Fatality Rate by Vehicle Type',
             caption: 'Figure 6: Fatality rate by vehicle type. Not all vehicles carry equal risk — what you\'re driving matters more than you might think.',
             emotion: 'surprised',
             thought: 'The type of car I\'m in changes my odds?',
         },
         {
             plot:    'rf_contributing_factor_motorist.html',
+            title:   'Contributing Factors: Volume vs. Lethality',
             caption: 'Figure 7: Contributing factors — how common vs. how lethal. Some causes are frequent but rarely fatal; others are rare but almost always deadly.',
             emotion: 'scared',
             thought: 'Some of these factors... I\'ve been guilty of them myself.',
@@ -143,6 +153,7 @@ function loadStep(mode, stepIndex, showThought = true) {
     const step = steps[stepIndex] || steps[steps.length - 1];
 
     plotFrame.src    = step.plot;
+    plotTitle.textContent   = step.title || '';
     plotCaption.textContent = step.caption;
     setCharacter(mode, step.emotion);
     if (showThought) setThought(step.thought);
