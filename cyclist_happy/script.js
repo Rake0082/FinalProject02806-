@@ -56,6 +56,12 @@ const STORY = {
             emotion: 'scared',
             thought: 'Snow days feel dangerous... and the data backs me up.',
         },
+        {
+            plot:    'bubble_map_motorist.html',
+            caption: 'Figure 4: Motorist danger zones across NYC. Each bubble marks a crash cluster — size shows total crashes, colour shows fatality rate. The deadliest spots are not always the busiest.',
+            emotion: 'surprised',
+            thought: 'I drive these streets every day... I had no idea.',
+        },
     ],
 };
 
