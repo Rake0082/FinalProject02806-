@@ -68,6 +68,12 @@ const STORY = {
             emotion: 'thinking',
             thought: 'So what actually decides whether I make it home?',
         },
+        {
+            plot:    'rf_vehicle_type_motorist.html',
+            caption: 'Figure 6: Fatality rate by vehicle type. Not all vehicles carry equal risk — what you\'re driving matters more than you might think.',
+            emotion: 'surprised',
+            thought: 'The type of car I\'m in changes my odds?',
+        },
     ],
 };
 
