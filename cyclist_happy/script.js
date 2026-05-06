@@ -62,6 +62,12 @@ const STORY = {
             emotion: 'surprised',
             thought: 'I drive these streets every day... I had no idea.',
         },
+        {
+            plot:    'rf_feature_importance_motorist.html',
+            caption: 'Figure 5: What predicts a fatal motorist crash? A Random Forest model ranks the most important factors — some are obvious, others are not.',
+            emotion: 'thinking',
+            thought: 'So what actually decides whether I make it home?',
+        },
     ],
 };
 
