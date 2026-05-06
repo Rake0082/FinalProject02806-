@@ -50,6 +50,12 @@ const STORY = {
             emotion: 'surprised',
             thought: 'Wait — late at night is when I\'m really at risk?',
         },
+        {
+            plot:    'weather_effect_motorist_plot.html',
+            caption: 'Figure 3: Weather and motorist crashes. Winter storm days see far more crashes on average than clear days — slippery roads and reduced visibility change the game.',
+            emotion: 'scared',
+            thought: 'Snow days feel dangerous... and the data backs me up.',
+        },
     ],
 };
 
