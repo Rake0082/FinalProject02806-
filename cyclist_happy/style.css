@@ -189,30 +189,38 @@ body {
     justify-content: center;
 }
 
-#plot-title {
-    font-family: var(--font-header);
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--text-color);
-    margin: 0 0 10px 0;
-}
-
 .plot-wrapper {
     width: 100%;
     height: 100%;
     background: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    padding: 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
-#plot-frame { width: 100%; height: 90%; border: none; }
+#plot-title {
+    font-family: var(--font-header);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-color);
+    text-align: center;
+    letter-spacing: -0.01em;
+    margin: 0;
+    padding: 20px 24px 0;
+}
+
+#plot-frame { width: 100%; flex: 1; border: none; min-height: 0; }
 
 .figure-caption {
     font-family: var(--font-mono);
-    font-size: 0.8rem;
-    margin-top: 10px;
-    color: #666;
+    font-size: 0.75rem;
+    padding: 8px 20px 14px;
+    margin: 0;
+    color: #888;
+    border-top: 1px solid #f0f0f0;
 }
 
 .scroll-text { width: 36%; }
