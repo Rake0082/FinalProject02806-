@@ -15,6 +15,7 @@ const changeBtn     = document.getElementById('change-btn');
 
 let currentMode    = "";
 let scrollamaReady = false;
+let suppressThought = false; // true while we want to block the bubble
 
 // ── Story content per persona and step ──────────────────────────────────────
 // Each step defines which plot to show, a figure caption, character emotion,
@@ -88,6 +89,7 @@ function setCharacter(mode, emotion) {
 }
 
 function setThought(text) {
+    if (suppressThought) return;
     if (text) {
         thoughtText.textContent = text;
         thoughtBubble.classList.remove('hidden');
@@ -129,6 +131,7 @@ function resetSelection() {
         thoughtBubble.classList.add('hidden');
     }, 500);
     currentMode = '';
+    suppressThought = false;
 }
 
 changeBtn.addEventListener('click', resetSelection);
@@ -154,6 +157,9 @@ choices.forEach(choice => {
 
         hookTitle.innerText = `The streets of NYC from a ${mode}'s perspective...`;
 
+        // Suppress the thought bubble until the user actually scrolls to a step
+        suppressThought = true;
+
         // Load first step without showing thought bubble — it appears on scroll
         loadStep(mode, 0, false);
         showCharacter();
@@ -178,6 +184,8 @@ function initScrollama() {
         .onStepEnter(response => {
             response.element.classList.add('is-active');
             const stepIndex = parseInt(response.element.getAttribute('data-step'), 10);
+            // First real scroll: lift suppression so the thought bubble can now appear
+            suppressThought = false;
             if (currentMode) loadStep(currentMode, stepIndex);
         });
 }
