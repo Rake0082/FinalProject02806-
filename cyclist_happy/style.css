@@ -55,11 +55,41 @@ body {
     z-index: 1;
 }
 
+.intro-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent-color);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
 #intro h1 {
     font-family: var(--font-header);
-    font-size: 3.5rem;
-    margin-bottom: 10px;
+    font-size: 2.8rem;
+    margin: 0 auto 0;
     text-transform: uppercase;
+    letter-spacing: -0.01em;
+    position: relative;
+    display: inline-block;
+}
+
+#intro h1::after {
+    content: '';
+    display: block;
+    width: 44px;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 2px;
+    margin: 14px auto 0;
+}
+
+#intro .subtitle {
+    font-size: 1rem;
+    color: #777;
+    margin-top: 20px;
+    margin-bottom: 6px;
+    letter-spacing: 0.01em;
 }
 
 #choice-container {
