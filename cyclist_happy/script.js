@@ -91,8 +91,8 @@ function setThought(text) {
     if (text) {
         thoughtText.textContent = text;
         thoughtBubble.classList.remove('hidden');
-        // Trigger fade-in
-        requestAnimationFrame(() => thoughtBubble.classList.add('visible'));
+        // Two rAF frames ensure display:none is cleared before opacity transitions
+        requestAnimationFrame(() => requestAnimationFrame(() => thoughtBubble.classList.add('visible')));
     } else {
         thoughtBubble.classList.remove('visible');
         setTimeout(() => thoughtBubble.classList.add('hidden'), 300);
@@ -158,10 +158,16 @@ choices.forEach(choice => {
         loadStep(mode, 0);
         showCharacter();
 
-        if (!scrollamaReady) {
-            initScrollama();
-            scrollamaReady = true;
-        }
+        // Give the browser one frame to render the now-visible container,
+        // then initialise (or resize) scrollama so it measures positions correctly
+        requestAnimationFrame(() => {
+            if (!scrollamaReady) {
+                initScrollama();
+                scrollamaReady = true;
+            } else {
+                scroller.resize();
+            }
+        });
     });
 });
 
