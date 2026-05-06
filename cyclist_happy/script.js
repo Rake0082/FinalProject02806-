@@ -74,6 +74,12 @@ const STORY = {
             emotion: 'surprised',
             thought: 'The type of car I\'m in changes my odds?',
         },
+        {
+            plot:    'rf_contributing_factor_motorist.html',
+            caption: 'Figure 7: Contributing factors — how common vs. how lethal. Some causes are frequent but rarely fatal; others are rare but almost always deadly.',
+            emotion: 'scared',
+            thought: 'Some of these factors... I\'ve been guilty of them myself.',
+        },
     ],
 };
 
