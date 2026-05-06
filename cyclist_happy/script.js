@@ -62,6 +62,15 @@ const STORY = {
             heading: 'Who Is Most at Risk?',
             text:    'Given that a crash has already happened, does gender influence survival? Across all road users the gap is visible — but for pedestrians, the difference is particularly striking.',
         },
+        {
+            plot:    'bubble_map_pedestrian.html',
+            title:   'Pedestrian Danger Zones — NYC',
+            caption: 'Figure 3: Pedestrian danger zones across NYC. Each bubble marks a crash cluster — size shows total crashes, colour shows fatality rate. The deadliest spots are not always where the crowds are.',
+            emotion: 'surprised',
+            thought: 'I walk these streets every day... I had no idea.',
+            heading: 'Where It Happens',
+            text:    'Zoom out from time and identity and look at place. Where do pedestrian crashes concentrate across NYC — and are the deadliest clusters the same as the busiest ones?',
+        },
     ],
     motorist: [
         {
