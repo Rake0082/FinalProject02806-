@@ -7,16 +7,26 @@ const scrollyCont   = document.getElementById('scrolly-container');
 const plotFrame     = document.getElementById('plot-frame');
 const plotCaption   = document.getElementById('plot-caption');
 const plotTitle     = document.getElementById('plot-title');
+const progressEl    = document.getElementById('step-progress');
 const floatingChar  = document.getElementById('floating-char');
 const floatingImg   = document.getElementById('floating-char-img');
 const thoughtBubble = document.getElementById('thought-bubble');
 const thoughtText   = document.getElementById('thought-text');
 const hookTitle     = document.getElementById('hook-title');
+const hookNumber    = document.getElementById('hook-number');
+const hookLabel     = document.getElementById('hook-label');
 const changeBtn     = document.getElementById('change-btn');
 
 let currentMode    = "";
 let scrollamaReady = false;
 let suppressThought = false; // true while we want to block the bubble
+
+// ── Big hook stat per persona ────────────────────────────────────────────────
+const HOOK = {
+    cyclist:    { stat: '13,000+',  label: 'cyclists injured in NYC between 2012–2023' },
+    pedestrian: { stat: '57,000+',  label: 'pedestrians struck by vehicles in NYC since 2012' },
+    motorist:   { stat: '1.5M+',    label: 'motorist crashes recorded in NYC since 2012' },
+};
 
 // ── Story content per persona and step ──────────────────────────────────────
 // Each step defines which plot to show, a figure caption, character emotion,
@@ -146,17 +156,34 @@ function showCharacter() {
     requestAnimationFrame(() => floatingChar.classList.add('visible'));
 }
 
+// ── Progress dots ────────────────────────────────────────────────────────────
+function updateProgress(mode, stepIndex) {
+    const total = STORY[mode]?.length || 0;
+    progressEl.innerHTML = Array.from({ length: total }, (_, i) =>
+        `<span class="prog-dot${i === stepIndex ? ' active' : ''}"></span>`
+    ).join('');
+}
+
 // ── Load a story step ────────────────────────────────────────────────────────
 function loadStep(mode, stepIndex, showThought = true) {
     const steps = STORY[mode];
     if (!steps) return;
     const step = steps[stepIndex] || steps[steps.length - 1];
 
-    plotFrame.src    = step.plot;
+    // Fade iframe out, swap src, fade back in
+    plotFrame.style.opacity = '0';
+    setTimeout(() => {
+        plotFrame.src = step.plot;
+        const fadeIn = () => { plotFrame.style.opacity = '1'; };
+        plotFrame.onload = fadeIn;
+        setTimeout(fadeIn, 700); // fallback if onload doesn't fire
+    }, 200);
+
     plotTitle.textContent   = step.title || '';
     plotCaption.textContent = step.caption;
     setCharacter(mode, step.emotion);
     if (showThought) setThought(step.thought);
+    updateProgress(mode, stepIndex);
 }
 
 // ── Reset so user can pick a different persona ───────────────────────────────
@@ -197,6 +224,10 @@ choices.forEach(choice => {
         scrollPrompt.classList.remove('hidden');
 
         hookTitle.innerText = `The streets of NYC from a ${mode}'s perspective...`;
+        if (HOOK[mode]) {
+            hookNumber.textContent = HOOK[mode].stat;
+            hookLabel.textContent  = HOOK[mode].label;
+        }
 
         // Suppress the thought bubble until the user actually scrolls to a step
         suppressThought = true;
@@ -223,9 +254,9 @@ function initScrollama() {
     scroller
         .setup({ step: '.step', offset: 0.6, debug: false })
         .onStepEnter(response => {
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('is-active'));
             response.element.classList.add('is-active');
             const stepIndex = parseInt(response.element.getAttribute('data-step'), 10);
-            // First real scroll: lift suppression so the thought bubble can now appear
             suppressThought = false;
             if (currentMode) loadStep(currentMode, stepIndex);
         });

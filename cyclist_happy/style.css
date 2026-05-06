@@ -160,14 +160,49 @@ body {
 }
 
 .hook-container {
-    max-width: 800px;
+    max-width: 700px;
     padding: 20px;
 }
 
 .hook-container h2 {
     font-family: var(--font-header);
-    font-size: 3rem;
-    margin-bottom: 20px;
+    font-size: 2.2rem;
+    margin-bottom: 0;
+    color: #555;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+#hook-stat {
+    margin: 24px 0 20px;
+}
+
+#hook-number {
+    display: block;
+    font-family: var(--font-header);
+    font-size: 6rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    line-height: 1;
+    letter-spacing: -0.04em;
+}
+
+#hook-label {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: #888;
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+#hook-text {
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.7;
+    margin-top: 20px;
 }
 
 /* ── SCROLLYTELLING (2 columns, no character column) ── */
@@ -223,7 +258,7 @@ body {
     min-height: 0;
 }
 
-#plot-frame { width: 100%; flex: 1; border: none; min-height: 0; }
+#plot-frame { width: 100%; flex: 1; border: none; min-height: 0; transition: opacity 0.25s ease; }
 
 .figure-caption {
     font-family: var(--font-mono);
@@ -238,7 +273,35 @@ body {
 
 .step {
     margin-bottom: 100vh;
-    padding: 40px 20px;
+    padding: 40px 20px 40px 24px;
+    border-left: 3px solid transparent;
+    transition: border-left-color 0.4s ease;
+    border-radius: 2px;
+}
+
+.step.is-active {
+    border-left-color: var(--accent-color);
+}
+
+/* ── Progress dots ── */
+#step-progress {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.prog-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #d0ccc5;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.prog-dot.active {
+    background: var(--accent-color);
+    transform: scale(1.4);
 }
 
 /* ── Thought bubble ── */
