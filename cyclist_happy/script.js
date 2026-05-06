@@ -5,13 +5,52 @@ const scrollPrompt  = document.getElementById('scroll-prompt');
 const storyHook     = document.getElementById('story-hook');
 const scrollyCont   = document.getElementById('scrolly-container');
 const plotFrame     = document.getElementById('plot-frame');
+const plotCaption   = document.getElementById('plot-caption');
 const floatingChar  = document.getElementById('floating-char');
 const floatingImg   = document.getElementById('floating-char-img');
+const thoughtBubble = document.getElementById('thought-bubble');
+const thoughtText   = document.getElementById('thought-text');
 const hookTitle     = document.getElementById('hook-title');
 const changeBtn     = document.getElementById('change-btn');
 
-let currentMode = "";
+let currentMode    = "";
 let scrollamaReady = false;
+
+// ── Story content per persona and step ──────────────────────────────────────
+// Each step defines which plot to show, a figure caption, character emotion,
+// and the thought bubble text shown next to the character.
+const STORY = {
+    cyclist: [
+        {
+            plot:    'cyclist_hourly_plot.html',
+            caption: 'Figure 1: Cyclist crashes by hour of day. The evening rush (16–18h) sees the highest volume, but late-night crashes carry a disproportionately high fatality rate.',
+            emotion: 'thinking',
+            thought: 'Rush hour... that\'s when cars stop looking out for me.',
+        },
+    ],
+    pedestrian: [
+        {
+            plot:    'pedestrian_hourly_plot.html',
+            caption: 'Figure 1: Pedestrian crashes by hour of day. Most crashes happen during the evening commute, but midnight hours are when a single crash is most likely to be fatal.',
+            emotion: 'thinking',
+            thought: 'I thought daytime was safe... the data says otherwise.',
+        },
+    ],
+    motorist: [
+        {
+            plot:    'motorist_hourly_plot.html',
+            caption: 'Figure 1: Motorist crashes by hour of day. Rush hour dominates crash volume — but the deadliest crashes happen long after traffic has cleared.',
+            emotion: 'thinking',
+            thought: 'Rush hour is stressful, but is it actually the most dangerous?',
+        },
+        {
+            plot:    'risk_vs_reality_motorist_plot.html',
+            caption: 'Figure 2: Risk vs. reality for motorists. Crash volume and fatality rate tell very different stories — the hours you worry about may not be the ones that should worry you.',
+            emotion: 'surprised',
+            thought: 'Wait — late at night is when I\'m really at risk?',
+        },
+    ],
+};
 
 // ── NYC map background — draws itself on load ────────────────────────────────
 (function drawNYCMap() {
@@ -31,43 +70,64 @@ let scrollamaReady = false;
             .append('path')
             .attr('d', path);
 
-        // For each path, measure its length and set up the drawing animation.
-        // stroke-dasharray = total length  → whole stroke is one invisible dash gap
-        // stroke-dashoffset = total length → stroke starts fully hidden
-        // Animating dashoffset → 0 reveals the stroke as if being drawn by a pen.
         paths.each(function (d, i) {
             const len = this.getTotalLength();
             d3.select(this)
                 .attr('stroke-dasharray', len)
                 .attr('stroke-dashoffset', len)
-                .style('animation', `draw-path 2.5s ease forwards`)
+                .style('animation', 'draw-path 2.5s ease forwards')
                 .style('animation-delay', `${i * 0.18}s`);
         });
     });
 })();
 
-// ── Character helper ─────────────────────────────────────────────────────────
+// ── Character helpers ────────────────────────────────────────────────────────
 function setCharacter(mode, emotion) {
     const prefix = mode === 'motorist' ? 'driver' : mode;
     floatingImg.src = `${prefix}_${emotion}.svg`;
 }
 
+function setThought(text) {
+    if (text) {
+        thoughtText.textContent = text;
+        thoughtBubble.classList.remove('hidden');
+        // Trigger fade-in
+        requestAnimationFrame(() => thoughtBubble.classList.add('visible'));
+    } else {
+        thoughtBubble.classList.remove('visible');
+        setTimeout(() => thoughtBubble.classList.add('hidden'), 300);
+    }
+}
+
 function showCharacter() {
     floatingChar.classList.remove('hidden');
-    // Small delay so CSS transition fires
     requestAnimationFrame(() => floatingChar.classList.add('visible'));
 }
 
-// ── Reset selection so user can switch persona ───────────────────────────────
+// ── Load a story step ────────────────────────────────────────────────────────
+function loadStep(mode, stepIndex) {
+    const steps = STORY[mode];
+    if (!steps) return;
+    const step = steps[stepIndex] || steps[steps.length - 1];
+
+    plotFrame.src    = step.plot;
+    plotCaption.textContent = step.caption;
+    setCharacter(mode, step.emotion);
+    setThought(step.thought);
+}
+
+// ── Reset so user can pick a different persona ───────────────────────────────
 function resetSelection() {
-    choices.forEach(c => {
-        c.classList.remove('fade-out', 'selected-shake');
-    });
+    choices.forEach(c => c.classList.remove('fade-out', 'selected-shake'));
     scrollPrompt.classList.add('hidden');
     storyHook.classList.add('hidden');
     scrollyCont.classList.add('hidden');
     floatingChar.classList.remove('visible');
-    setTimeout(() => floatingChar.classList.add('hidden'), 500);
+    thoughtBubble.classList.remove('visible');
+    setTimeout(() => {
+        floatingChar.classList.add('hidden');
+        thoughtBubble.classList.add('hidden');
+    }, 500);
     currentMode = '';
 }
 
@@ -77,13 +137,10 @@ changeBtn.addEventListener('click', resetSelection);
 choices.forEach(choice => {
     choice.addEventListener('click', () => {
         const mode = choice.getAttribute('data-perspective');
-
-        // If same persona clicked again, ignore
         if (mode === currentMode) return;
 
         currentMode = mode;
 
-        // Dim others, animate selected
         choices.forEach(c => {
             c.classList.remove('selected-shake');
             c.classList.add('fade-out');
@@ -91,20 +148,16 @@ choices.forEach(choice => {
         choice.classList.remove('fade-out');
         choice.classList.add('selected-shake');
 
-        // Show sections
         storyHook.classList.remove('hidden');
         scrollyCont.classList.remove('hidden');
         scrollPrompt.classList.remove('hidden');
 
-        // Load content
-        plotFrame.src = `${mode}_hourly_plot.html`;
         hookTitle.innerText = `The streets of NYC from a ${mode}'s perspective...`;
 
-        // Show floating character
-        setCharacter(mode, 'happy');
+        // Load first step
+        loadStep(mode, 0);
         showCharacter();
 
-        // Init scrollama once
         if (!scrollamaReady) {
             initScrollama();
             scrollamaReady = true;
@@ -112,16 +165,14 @@ choices.forEach(choice => {
     });
 });
 
-// ── Scrollama ────────────────────────────────────────────────────────────────
+// ── Scrollama — swap plot and thought on each step ───────────────────────────
 function initScrollama() {
     scroller
         .setup({ step: '.step', offset: 0.6, debug: false })
         .onStepEnter(response => {
             response.element.classList.add('is-active');
-            // Swap character emotion per step
-            const emotions = ['thinking', 'surprised', 'scared', 'happy'];
-            const emotion  = emotions[response.index % emotions.length];
-            if (currentMode) setCharacter(currentMode, emotion);
+            const stepIndex = parseInt(response.element.getAttribute('data-step'), 10);
+            if (currentMode) loadStep(currentMode, stepIndex);
         });
 }
 

@@ -8,14 +8,16 @@
 </head>
 <body>
 
-    <!-- ── Floating character (appears on every section) ── -->
+    <!-- ── Floating character + thought bubble ── -->
     <div id="floating-char" class="hidden">
+        <div id="thought-bubble" class="hidden">
+            <span id="thought-text"></span>
+        </div>
         <img id="floating-char-img" src="" alt="Character">
     </div>
 
     <!-- SECTION 1: INTRO / CHOICE -->
     <section id="intro">
-        <!-- NYC map drawn here by D3 -->
         <svg id="nyc-map-bg" aria-hidden="true"></svg>
 
         <div id="intro-content">
@@ -62,23 +64,30 @@
         </div>
     </section>
 
-    <!-- SECTION 3: SCROLLYTELLING (2 columns — no character column) -->
+    <!-- SECTION 3: SCROLLYTELLING -->
     <main id="scrolly-container" class="hidden">
 
         <!-- LEFT: Sticky plot -->
         <div class="sticky-plot">
             <div class="plot-wrapper">
                 <iframe id="plot-frame" src="" frameborder="0"></iframe>
-                <p class="figure-caption" id="plot-caption">Figure 1: Distribution of collisions throughout the day.</p>
+                <p class="figure-caption" id="plot-caption"></p>
             </div>
         </div>
 
-        <!-- CENTRE: Scrolling text -->
+        <!-- CENTRE: Scrolling text steps -->
         <article class="scroll-text">
-            <div class="step" data-step="1">
-                <h3 id="step-title">The Rhythm of the Streets</h3>
-                <p id="step-description">When we look at the hourly data, we see clear patterns. The rush hour isn't just a time for traffic — it's a peak time for danger.</p>
+
+            <div class="step" data-step="0">
+                <h3>The Rhythm of the Streets</h3>
+                <p>When do crashes actually happen? Looking at collisions hour by hour, a clear pattern emerges — and it may not be what you'd expect.</p>
             </div>
+
+            <div class="step" data-step="1">
+                <h3>Risk vs. Reality — Are You as Safe as You Think?</h3>
+                <p>Motorists make up the majority of road users — but does that mean they bear the most risk? This chart separates how common crashes are from how deadly they actually are.</p>
+            </div>
+
         </article>
 
     </main>

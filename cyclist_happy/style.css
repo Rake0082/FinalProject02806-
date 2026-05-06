@@ -214,6 +214,47 @@ body {
     padding: 40px 20px;
 }
 
+/* ── Thought bubble ── */
+#thought-bubble {
+    position: absolute;
+    bottom: 115%;
+    right: 10px;
+    width: 190px;
+    background: white;
+    border: 1.5px solid #ddd;
+    border-radius: 16px;
+    padding: 10px 13px;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    color: var(--text-color);
+    line-height: 1.45;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.35s, transform 0.35s;
+    pointer-events: none;
+}
+
+/* The three little dots that connect bubble to character */
+#thought-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -22px;
+    right: 28px;
+    width: 8px;
+    height: 8px;
+    background: white;
+    border: 1.5px solid #ddd;
+    border-radius: 50%;
+    box-shadow: 8px 8px 0 -2px white, 8px 8px 0 -1px #ddd,
+                16px 14px 0 -3px white, 16px 14px 0 -2px #ddd;
+}
+
+#thought-bubble.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* ── Floating character ── */
 #floating-char {
     position: fixed;
