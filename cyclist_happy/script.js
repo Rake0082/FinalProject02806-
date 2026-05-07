@@ -39,7 +39,7 @@ const STORY = {
             emotion: 'thinking',
             thought: 'Rush hour... that\'s when cars stop looking out for me.',
             heading: 'The Rhythm of the Streets',
-            text:    'When do crashes actually happen? Looking at cyclist collisions hour by hour, a clear pattern emerges around the evening rush — and the fatality rate tells a different story.',
+            text:    'Rush hour fills the streets — and the collision reports. Cyclist crashes peak sharply between 4 and 6 PM, when commuters flood the city. The pattern is clear: the more people on the road, the more danger for cyclists.<br><br>But the hour of day only tells us when within a single day. What if the danger shifts across the entire year? Does summer bring more cyclists — and more crashes? Let\'s follow the calendar.',
         },
         {
             plot:    'seasonality_cyclist_focus_plot.html',
