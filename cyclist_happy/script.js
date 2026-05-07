@@ -71,7 +71,7 @@ const STORY = {
         {
             plot:    'rf_vehicle_type_cyclist.html',
             title:   'Fatality Rate by Vehicle Type',
-            caption: 'Figure 5: Fatality rate by vehicle type for cyclist crashes. Not all vehicles are equally dangerous to a cyclist — what hits you matters.',
+            caption: 'Figure 5: Fatality rate by primary vehicle type involved in cyclist crashes. Only the top 12 vehicle types by crash volume are shown, each with a minimum of 50 crashes. Bars show the percentage of crashes involving that vehicle type that resulted in the cyclist\'s death, sorted from least to most deadly. Hover to see the exact fatality rate and total crash count.',
             emotion: 'surprised',
             thought: 'The type of vehicle that hits me changes my odds of surviving?',
             heading: 'Does the Vehicle Matter?',
