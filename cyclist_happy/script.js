@@ -57,7 +57,7 @@ const STORY = {
             emotion: 'surprised',
             thought: 'I ride these streets every day... I had no idea.',
             heading: 'Where It Happens',
-            text:    'Zoom out from time and look at place. Where do cyclist crashes cluster across NYC — and do the deadliest spots match the busiest intersections?',
+            text:    'Time of day, time of year — but now it\'s time to ask where. Some intersections in NYC are consistently more dangerous for cyclists than others. Here, it\'s not crash volume that matters — it\'s the fatality rate that determines how dark a spot appears on the map.<br><br>The contrast can be striking. Jay Street &amp; Tillary Street in Brooklyn recorded nearly 11,000 crashes — one of the busiest intersections in the dataset — yet its fatality rate is just 0.30%. But the trend is moving in the wrong direction. Bruckner Boulevard &amp; Rosedale Avenue in the Bronx tells a different story: only 34 crashes, but a fatality rate of 8.82%. Busy doesn\'t mean deadly. Quiet doesn\'t mean safe.<br><br>And if you click around, something familiar emerges: peak hour at the most dangerous spots tends to cluster around 2 to 8 PM — exactly the evening rush we saw at the very beginning. The where and the when are not unrelated.<br><br>But the bubbles reveal more than just location and time. Each intersection comes with a top cause and a median age — and that raises a harder question: is driver inattention actually more likely to turn a crash fatal? Does the age of the cyclist matter? So far we\'ve mapped the crashes — now let\'s look at what\'s behind the fatality rate.',
         },
         {
             plot:    'rf_feature_importance_cyclist.html',
