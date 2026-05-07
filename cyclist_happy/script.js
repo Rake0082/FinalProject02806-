@@ -75,7 +75,7 @@ const STORY = {
             emotion: 'surprised',
             thought: 'The type of vehicle that hits me changes my odds of surviving?',
             heading: 'Does the Vehicle Matter?',
-            text:    'When a cyclist is struck, does it matter what kind of vehicle hit them? The fatality rate varies sharply by vehicle type — and some results are hard to ignore.',
+            text:    'Box trucks top the list by a wide margin with a fatality rate of 4.35% — a cyclist struck by one is far more likely to die than in any other collision. Buses and pick-up trucks follow. The pattern is hard to miss: the heavier the vehicle, the higher the fatality rate. However, these cases are also far less likely to occur.<br><br>Hover over any bar to see both the fatality rate and the number of observations. Station wagons account for the most crashes with 17,365 in total, yet the fatality rate is only 0.26%. Cyclist-on-cyclist collisions are also common — 16,332 observations — with an even lower fatality rate of 0.20%.<br><br>E-bikes land in the middle with a fatality rate of 0.80%, a reminder that the cycling landscape itself is changing.<br><br>But knowing what hits you only tells part of the story. The other part is why it happens at all.',
         },
         {
             plot:    'rf_contributing_factor_cyclist.html',
