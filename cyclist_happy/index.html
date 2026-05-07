@@ -85,12 +85,46 @@
         <!-- CENTRE: Scrolling text steps — populated dynamically by script.js -->
         <article class="scroll-text"></article>
 
-        <!-- Restart prompt — shown on the final summary step -->
-        <div id="restart-prompt" class="hidden">
-            <button id="restart-btn">↑ Choose another perspective</button>
-        </div>
-
     </main>
+
+    <!-- SECTION 4: STORY ENDING — summary + references + restart -->
+    <section id="story-ending" class="hidden">
+        <div class="ending-container">
+
+            <!-- Cyclist summary -->
+            <div class="ending-summary hidden" data-persona="cyclist">
+                <h2 class="ending-heading">Summary</h2>
+                <p class="ending-text ending-placeholder">[Cyclist summary — text to be added]</p>
+            </div>
+
+            <!-- Pedestrian summary -->
+            <div class="ending-summary hidden" data-persona="pedestrian">
+                <h2 class="ending-heading">Summary</h2>
+                <p class="ending-text ending-placeholder">[Pedestrian summary — text to be added]</p>
+            </div>
+
+            <!-- Motorist summary -->
+            <div class="ending-summary hidden" data-persona="motorist">
+                <h2 class="ending-heading">Summary</h2>
+                <p class="ending-text ending-placeholder">[Motorist summary — text to be added]</p>
+            </div>
+
+            <!-- References (same for all personas) -->
+            <div class="ending-references">
+                <h2 class="ending-heading">References</h2>
+                <ul class="ref-list">
+                    <li>Motor Vehicle Collisions — Crashes. NYC Open Data / NYPD, 2012–2026.</li>
+                    <li>Motor Vehicle Collisions — Persons. NYC Open Data / NYPD, 2012–2026.</li>
+                    <li>Motor Vehicle Collisions — Vehicles. NYC Open Data / NYPD, 2012–2026.</li>
+                    <li>Automated Traffic Volume Counts. NYC Department of Transportation.</li>
+                    <li>DSNY Salt Usage Data. NYC Department of Sanitation.</li>
+                </ul>
+            </div>
+
+            <button id="restart-btn">↑ Choose another perspective</button>
+
+        </div>
+    </section>
 
     <script src="https://unpkg.com/scrollama"></script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
