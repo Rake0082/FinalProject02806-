@@ -54,7 +54,7 @@ const STORY = {
             text:    'When do crashes actually happen? For pedestrians, the evening commute dominates — but the deadliest crashes happen long after the crowds have gone home.',
         },
         {
-            plot:    'rf_sex_fatality.html',
+            plot:    'pedestrian_fatality_by_sex_plot.html',
             title:   'Does Gender Change Your Risk?',
             caption: 'Figure 2: Fatality rate by sex. Given that a crash happened, are men or women more likely to die? The answer differs by how you get around.',
             emotion: 'surprised',
