@@ -46,9 +46,9 @@ const STORY = {
             title:   'Seasonal Patterns in Cyclist Crashes',
             caption: 'Figure 2: Cyclist crashes by season. Summer months see far more crashes — but does the fatality rate follow the same trend?',
             emotion: 'thinking',
-            thought: 'Of course summer has more crashes... but is it actually more dangerous?',
-            heading: 'Does the Season Matter?',
-            text:    'Cyclists are out in force during summer — and so are crashes. But does higher volume mean higher risk? The seasonal pattern reveals a more nuanced story.',
+            thought: 'More cyclists in summer, more crashes. Honestly? I\'d rather stay home when it snows anyway.',
+            heading: 'The Summer Surge',
+            text:    'No surprise here — cyclist crashes peak in summer and drop in winter. But with more cyclists on the road in summer, a higher crash count is almost inevitable. Volume isn\'t the same as danger.<br><br>So let\'s shift the lens. Instead of volume, we look at fatalities. And instead of asking when, we ask where — are there parts of NYC where cyclists are systematically more at risk than others?',
         },
         {
             plot:    'bubble_map_cyclist.html',
