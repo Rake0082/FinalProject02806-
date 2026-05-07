@@ -361,30 +361,26 @@ body {
 #thought-bubble::before {
     content: '';
     position: absolute;
-    bottom: -18px;
-    right: 30px;
-    width: 14px;
-    height: 14px;
+    bottom: -20px;
+    right: 32px;
+    width: 13px;
+    height: 13px;
     background: #f9f7f2;
     border: 2px solid #c8c4bc;
     border-radius: 50%;
 }
 
-/* Medium trailing circle — further toward character */
+/* Small trailing circle — with clear gap from the first */
 #thought-bubble::after {
     content: '';
     position: absolute;
-    bottom: -30px;
-    right: 24px;
-    width: 9px;
-    height: 9px;
+    bottom: -38px;
+    right: 27px;
+    width: 8px;
+    height: 8px;
     background: #f9f7f2;
     border: 2px solid #c8c4bc;
     border-radius: 50%;
-    /* Third tiny dot via box-shadow */
-    box-shadow:
-        -4px 11px 0 -1px #f9f7f2,
-        -4px 11px 0  1.5px #c8c4bc;
 }
 
 #thought-bubble.visible {
