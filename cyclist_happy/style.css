@@ -337,42 +337,59 @@ body {
 /* ── Thought bubble ── */
 #thought-bubble {
     position: absolute;
-    bottom: 115%;
-    right: 10px;
-    width: 190px;
+    bottom: 128%;
+    right: 0px;
+    width: 195px;
     background: white;
-    border: 1.5px solid #ddd;
-    border-radius: 16px;
-    padding: 10px 13px;
+    border: 2.5px solid #9D5C58;
+    /* Organic cloud shape */
+    border-radius: 48% 52% 44% 56% / 52% 44% 56% 48%;
+    padding: 16px 18px;
     font-family: var(--font-body);
     font-size: 0.78rem;
     color: var(--text-color);
-    line-height: 1.45;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    line-height: 1.5;
     opacity: 0;
-    transform: translateY(6px);
+    transform: translateY(8px) scale(0.94);
     transition: opacity 0.35s, transform 0.35s;
     pointer-events: none;
+    /* drop-shadow applies to the whole shape incl. pseudo-elements */
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.10));
 }
 
-/* The three little dots that connect bubble to character */
+/* Large trailing circle — closest to the bubble */
+#thought-bubble::before {
+    content: '';
+    position: absolute;
+    bottom: -18px;
+    right: 30px;
+    width: 14px;
+    height: 14px;
+    background: white;
+    border: 2.5px solid #9D5C58;
+    border-radius: 50%;
+}
+
+/* Medium trailing circle — further toward character */
 #thought-bubble::after {
     content: '';
     position: absolute;
-    bottom: -22px;
-    right: 28px;
-    width: 8px;
-    height: 8px;
+    bottom: -30px;
+    right: 24px;
+    width: 9px;
+    height: 9px;
     background: white;
-    border: 1.5px solid #ddd;
+    border: 2.5px solid #9D5C58;
     border-radius: 50%;
-    box-shadow: 8px 8px 0 -2px white, 8px 8px 0 -1px #ddd,
-                16px 14px 0 -3px white, 16px 14px 0 -2px #ddd;
+    /* Third tiny dot via box-shadow */
+    box-shadow:
+        -4px 11px 0 -1px white,
+        -4px 11px 0  1.5px #9D5C58;
 }
 
 #thought-bubble.visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
 }
 
 /* ── Floating character ── */
