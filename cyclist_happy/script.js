@@ -62,7 +62,7 @@ const STORY = {
         {
             plot:    'rf_feature_importance_cyclist.html',
             title:   'What Factors Predict a Fatal Crash?',
-            caption: 'Figure 4: What predicts a fatal cyclist crash? A Random Forest model ranks the most important factors — some are obvious, others are not.',
+            caption: 'Figure 4: Feature importance from a supervised Random Forest classifier trained to predict whether a cyclist involved in a crash was killed or survived. The model combines two NYC Open Data sources — one recording crash details (time, location, vehicle types, contributing factors) and one recording person details (age, sex, safety equipment, ejection status) — linked by a shared collision ID. Bar length reflects how strongly each feature predicts a fatal outcome: the longer the bar, the more predictive the feature.',
             emotion: 'thinking',
             thought: 'So what actually decides whether I make it home?',
             heading: 'What Makes a Crash Fatal?',
