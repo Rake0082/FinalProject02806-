@@ -205,7 +205,17 @@ body {
 }
 
 #hook-stat {
-    margin: 24px 0 20px;
+    margin: 24px 0 0;
+}
+
+#hook-stat::after {
+    content: '';
+    display: block;
+    width: 44px;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 2px;
+    margin: 24px auto 0;
 }
 
 #hook-number {

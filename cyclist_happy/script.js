@@ -349,7 +349,7 @@ choices.forEach(choice => {
         scrollyCont.classList.remove('hidden');
         scrollPrompt.classList.remove('hidden');
 
-        hookTitle.innerText = `The streets of NYC from a ${mode}'s perspective...`;
+        hookTitle.innerText = `The streets of NYC from a ${mode}'s perspective`;
         if (HOOK[mode]) {
             hookNumber.textContent = HOOK[mode].stat;
             hookLabel.textContent  = HOOK[mode].label;
