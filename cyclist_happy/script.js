@@ -44,7 +44,7 @@ const STORY = {
         {
             plot:    'seasonality_cyclist_focus_plot.html',
             title:   'Seasonal Patterns in Cyclist Crashes',
-            caption: 'Figure 2: Cyclist crashes by season. Summer months see far more crashes — but does the fatality rate follow the same trend?',
+            caption: 'Figure 2: Cyclist crashes as a share of total daily crashes, by month. The summer peak reflects more cyclists on the road — not necessarily more danger per ride.',
             emotion: 'thinking',
             thought: 'More cyclists in summer, more crashes. Honestly? I\'d rather stay home when it snows anyway.',
             heading: 'The Summer Surge',
