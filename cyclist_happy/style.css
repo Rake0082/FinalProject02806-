@@ -246,6 +246,34 @@ body {
     margin-top: 20px;
 }
 
+/* ── Restart prompt ── */
+#restart-prompt {
+    width: 38%;
+    text-align: center;
+    padding: 40px 0 60px;
+    margin-left: auto;
+}
+
+#restart-btn {
+    font-family: var(--font-header);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    background: none;
+    border: 2px solid var(--accent-color);
+    border-radius: 32px;
+    padding: 12px 28px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+#restart-btn:hover {
+    background: var(--accent-color);
+    color: white;
+}
+
 /* ── SCROLLYTELLING (2 columns, no character column) ── */
 #scrolly-container {
     display: flex;

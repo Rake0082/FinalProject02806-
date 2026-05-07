@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Public+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Public Sans', sans-serif;
+    background: #f9f7f2;
+    color: #1a1a1a;
+    padding: 28px 28px 24px;
+    height: 100%;
+}
+.section-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #9D5C58;
+    margin-bottom: 18px;
+}
+.stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+.stat {
+    background: white;
+    border-left: 3px solid #9D5C58;
+    border-radius: 6px;
+    padding: 12px 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.stat-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: #9D5C58;
+    line-height: 1;
+}
+.stat-label {
+    font-size: 0.74rem;
+    color: #666;
+    margin-top: 5px;
+    line-height: 1.4;
+}
+.closing {
+    font-size: 0.85rem;
+    color: #555;
+    line-height: 1.65;
+    margin-bottom: 22px;
+}
+.closing-placeholder {
+    font-style: italic;
+    color: #aaa;
+}
+.divider {
+    border: none;
+    border-top: 1px solid #ddd8d0;
+    margin-bottom: 16px;
+}
+.ref-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #999;
+    margin-bottom: 10px;
+}
+.ref-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.ref-list li {
+    font-size: 0.72rem;
+    color: #888;
+    line-height: 1.4;
+    padding-left: 10px;
+    position: relative;
+}
+.ref-list li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: #9D5C58;
+}
+</style>
+</head>
+<body>
+
+<p class="section-label">What the data tells us — Pedestrian</p>
+
+<div class="stat-grid">
+    <div class="stat">
+        <div class="stat-number">—</div>
+        <div class="stat-label">[Takeaway 1]</div>
+    </div>
+    <div class="stat">
+        <div class="stat-number">—</div>
+        <div class="stat-label">[Takeaway 2]</div>
+    </div>
+    <div class="stat">
+        <div class="stat-number">—</div>
+        <div class="stat-label">[Takeaway 3]</div>
+    </div>
+    <div class="stat">
+        <div class="stat-number">—</div>
+        <div class="stat-label">[Takeaway 4]</div>
+    </div>
+</div>
+
+<p class="closing closing-placeholder">[Closing paragraph]</p>
+
+<hr class="divider">
+
+<p class="ref-label">Data sources</p>
+<ul class="ref-list">
+    <li>Motor Vehicle Collisions — Crashes. NYC Open Data / NYPD, 2012–2026.</li>
+    <li>Motor Vehicle Collisions — Persons. NYC Open Data / NYPD, 2012–2026.</li>
+    <li>Motor Vehicle Collisions — Vehicles. NYC Open Data / NYPD, 2012–2026.</li>
+    <li>Automated Traffic Volume Counts. NYC Department of Transportation.</li>
+    <li>DSNY Salt Usage Data. NYC Department of Sanitation.</li>
+</ul>
+
+</body>
+</html>

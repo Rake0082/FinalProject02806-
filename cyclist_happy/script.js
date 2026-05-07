@@ -15,6 +15,8 @@ const thoughtText   = document.getElementById('thought-text');
 const hookTitle     = document.getElementById('hook-title');
 const hookNumber    = document.getElementById('hook-number');
 const hookLabel     = document.getElementById('hook-label');
+const restartPrompt = document.getElementById('restart-prompt');
+const restartBtn    = document.getElementById('restart-btn');
 
 let currentMode    = "";
 let scrollamaReady = false;
@@ -86,6 +88,16 @@ const STORY = {
             heading: 'Why Do Crashes Happen?',
             text:    'Failure to yield, driver inattention, dooring — the contributing factors behind cyclist crashes tell two different stories: what causes the most crashes, and what causes the deadliest ones.',
         },
+        {
+            plot:    'summary_cyclist.html',
+            title:   'What the Data Tells Us',
+            caption: '',
+            emotion: 'happy',
+            thought: '',
+            heading: 'Key Takeaways',
+            text:    '',
+            isSummary: true,
+        },
     ],
     pedestrian: [
         {
@@ -150,6 +162,16 @@ const STORY = {
             thought: 'Some of these factors... happen every single day.',
             heading: 'Why Do Crashes Happen?',
             text:    'Failure to yield, driver inattention, traffic control disregarded — the contributing factors behind pedestrian crashes tell two different stories: what causes the most crashes, and what causes the deadliest ones.',
+        },
+        {
+            plot:    'summary_pedestrian.html',
+            title:   'What the Data Tells Us',
+            caption: '',
+            emotion: 'happy',
+            thought: '',
+            heading: 'Key Takeaways',
+            text:    '',
+            isSummary: true,
         },
     ],
     motorist: [
@@ -216,6 +238,16 @@ const STORY = {
             heading: 'Why Do Crashes Happen?',
             text:    'Driver distraction, speeding, failing to yield — the contributing factors behind motorist crashes tell two different stories: what causes the most crashes, and what causes the deadliest ones.',
         },
+        {
+            plot:    'summary_motorist.html',
+            title:   'What the Data Tells Us',
+            caption: '',
+            emotion: 'happy',
+            thought: '',
+            heading: 'Key Takeaways',
+            text:    '',
+            isSummary: true,
+        },
     ],
 };
 
@@ -278,7 +310,7 @@ function renderSteps(mode) {
     article.innerHTML = (STORY[mode] || []).map((step, i) => `
         <div class="step" data-step="${i}">
             <h3>${step.heading}</h3>
-            <p>${step.text}</p>
+            ${step.text ? `<p>${step.text}</p>` : ''}
         </div>
     `).join('');
 }
@@ -311,6 +343,11 @@ function loadStep(mode, stepIndex, showThought = true) {
     setCharacter(mode, step.emotion);
     if (showThought) setThought(step.thought);
     updateProgress(mode, stepIndex);
+
+    // Show restart prompt on the final summary step
+    const isFinal = step.isSummary === true;
+    restartPrompt.classList.toggle('hidden', !isFinal);
+    floatingChar.style.visibility = isFinal ? 'hidden' : '';
 }
 
 // ── Reset so user can pick a different persona ───────────────────────────────
@@ -327,7 +364,14 @@ function resetSelection() {
     }, 500);
     currentMode = '';
     suppressThought = false;
+    restartPrompt.classList.add('hidden');
+    floatingChar.style.visibility = '';
 }
+
+restartBtn.addEventListener('click', () => {
+    resetSelection();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 
 
 // ── Persona selection ────────────────────────────────────────────────────────
