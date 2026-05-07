@@ -62,7 +62,7 @@ const STORY = {
         {
             plot:    'rf_feature_importance_cyclist.html',
             title:   'What Factors Predict a Fatal Crash?',
-            caption: 'Figure 4: Feature importance from a supervised Random Forest classifier trained to predict whether a cyclist involved in a crash was killed or survived. The model combines two NYC Open Data sources — one recording crash details (time, location, vehicle types, contributing factors) and one recording person details (age, sex, safety equipment, ejection status) — linked by a shared collision ID. Bar length reflects how strongly each feature predicts a fatal outcome: the longer the bar, the more predictive the feature.',
+            caption: 'Figure 4: Feature importance from a supervised Random Forest classifier trained to predict whether a cyclist involved in a crash was killed or survived. The model combines two NYC Open Data sources — one recording crash details (time, location, vehicle types, contributing factors) and one recording person details (age, sex, safety equipment, ejection status) — linked by a shared collision ID. Features include both time-based variables (hour of day, day of week, month) and person- and crash-level variables (age, borough, primary and secondary vehicle type, contributing factor, sex, safety equipment, ejection status, pedestrian location, and pedestrian action). Bar length reflects how strongly each feature predicts a fatal outcome: the longer the bar, the more predictive the feature.',
             emotion: 'thinking',
             thought: 'So what actually decides whether I make it home?',
             heading: 'What Makes a Crash Fatal?',
@@ -118,7 +118,7 @@ const STORY = {
         {
             plot:    'rf_feature_importance_pedestrian.html',
             title:   'What Factors Predict a Fatal Crash?',
-            caption: 'Figure 4: What predicts a fatal pedestrian crash? A Random Forest model ranks the most important factors — some are obvious, others are not.',
+            caption: 'Figure 4: Feature importance from a supervised Random Forest classifier trained to predict whether a pedestrian involved in a crash was killed or survived. The model combines two NYC Open Data sources — one recording crash details (time, location, vehicle types, contributing factors) and one recording person details (age, sex, safety equipment, ejection status) — linked by a shared collision ID. Features include both time-based variables (hour of day, day of week, month) and person- and crash-level variables (age, borough, primary and secondary vehicle type, contributing factor, sex, safety equipment, ejection status, pedestrian location, and pedestrian action). Bar length reflects how strongly each feature predicts a fatal outcome: the longer the bar, the more predictive the feature.',
             emotion: 'thinking',
             thought: 'So what actually decides whether I make it home?',
             heading: 'What Makes a Crash Fatal?',
@@ -192,7 +192,7 @@ const STORY = {
         {
             plot:    'rf_feature_importance_motorist.html',
             title:   'What Factors Predict a Fatal Crash?',
-            caption: 'Figure 5: What predicts a fatal motorist crash? A Random Forest model ranks the most important factors — some are obvious, others are not.',
+            caption: 'Figure 5: Feature importance from a supervised Random Forest classifier trained to predict whether a motorist involved in a crash was killed or survived. The model combines two NYC Open Data sources — one recording crash details (time, location, vehicle types, contributing factors) and one recording person details (age, sex, safety equipment, ejection status) — linked by a shared collision ID. Features include both time-based variables (hour of day, day of week, month) and person- and crash-level variables (age, borough, primary and secondary vehicle type, contributing factor, sex, safety equipment, ejection status, pedestrian location, and pedestrian action). Bar length reflects how strongly each feature predicts a fatal outcome: the longer the bar, the more predictive the feature.',
             emotion: 'thinking',
             thought: 'So what actually decides whether I make it home?',
             heading: 'What Makes a Crash Fatal?',
