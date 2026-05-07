@@ -85,7 +85,7 @@ body {
 }
 
 #intro .subtitle {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     color: #777;
     margin-top: 20px;
     margin-bottom: 6px;
@@ -192,6 +192,7 @@ body {
 .hook-container {
     max-width: 700px;
     padding: 20px;
+    text-align: center;
 }
 
 .hook-container h2 {
