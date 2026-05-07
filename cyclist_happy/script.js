@@ -53,7 +53,7 @@ const STORY = {
         {
             plot:    'bubble_map_cyclist.html',
             title:   'Cyclist Danger Zones — NYC',
-            caption: 'Figure 3: Cyclist danger zones across NYC. Each bubble marks a crash cluster — size shows total crashes, colour shows fatality rate. The deadliest spots are not always the busiest.',
+            caption: 'Figure 3: Interactive map of cyclist fatal crash clusters across NYC. Each bubble represents a geographic cluster built exclusively from fatal crashes — bubble size reflects the total number of fatal crashes in that cluster, colour reflects fatality rate (light pink = low, dark red = high). Hover over a bubble to see: the nearest intersection, total crashes, fatality rate, year-over-year trend (↑ increasing / → stable / ↓ decreasing), peak crash hour, most common contributing factor, median age of those involved, and borough.',
             emotion: 'surprised',
             thought: 'I ride these streets every day... I had no idea.',
             heading: 'Where It Happens',
