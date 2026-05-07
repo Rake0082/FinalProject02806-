@@ -340,7 +340,7 @@ body {
     bottom: 128%;
     right: 0px;
     width: 195px;
-    background: #f9f7f2;
+    background: var(--bg-color);
     border: 2px solid #c8c4bc;
     /* Organic cloud shape */
     border-radius: 48% 52% 44% 56% / 52% 44% 56% 48%;
@@ -353,8 +353,7 @@ body {
     transform: translateY(8px) scale(0.94);
     transition: opacity 0.35s, transform 0.35s;
     pointer-events: none;
-    /* drop-shadow applies to the whole shape incl. pseudo-elements */
-    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.10));
+    box-shadow: 0 3px 10px rgba(0,0,0,0.07);
 }
 
 /* Large trailing circle — closest to the bubble */
@@ -365,7 +364,7 @@ body {
     right: 32px;
     width: 13px;
     height: 13px;
-    background: #f9f7f2;
+    background: var(--bg-color);
     border: 2px solid #c8c4bc;
     border-radius: 50%;
 }
@@ -378,7 +377,7 @@ body {
     right: 27px;
     width: 8px;
     height: 8px;
-    background: #f9f7f2;
+    background: var(--bg-color);
     border: 2px solid #c8c4bc;
     border-radius: 50%;
 }
