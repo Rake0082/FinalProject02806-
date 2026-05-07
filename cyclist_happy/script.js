@@ -15,7 +15,6 @@ const thoughtText   = document.getElementById('thought-text');
 const hookTitle     = document.getElementById('hook-title');
 const hookNumber    = document.getElementById('hook-number');
 const hookLabel     = document.getElementById('hook-label');
-const changeBtn     = document.getElementById('change-btn');
 
 let currentMode    = "";
 let scrollamaReady = false;
@@ -285,7 +284,6 @@ function resetSelection() {
     suppressThought = false;
 }
 
-changeBtn.addEventListener('click', resetSelection);
 
 // ── Persona selection ────────────────────────────────────────────────────────
 choices.forEach(choice => {
