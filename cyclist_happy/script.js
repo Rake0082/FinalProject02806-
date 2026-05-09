@@ -91,11 +91,11 @@ const STORY = {
         {
             plot:    'pedestrian_hourly_plot.html',
             title:   'Crashes by Hour of Day',
-            caption: 'Figure 1: Pedestrian crashes by hour of day. Most crashes happen during the evening commute, but midnight hours are when a single crash is most likely to be fatal.',
+            caption: 'Hourly distribution of pedestrian-involved collisions in New York City. The data includes all recorded pedestrians involved in a vehicle collision, grouped by the hour of the day (0–23) to show the hourly trend.',
             emotion: 'thinking',
-            thought: 'I thought daytime was safe... the data says otherwise.',
+            thought: 'So, the 5 PM rush is a literal headache. Maybe I\'ll just start working from home... or at 3 AM?',
             heading: 'The Rhythm of the Streets',
-            text:    'When do crashes actually happen? For pedestrians, the evening commute dominates — but the deadliest crashes happen long after the crowds have gone home.',
+            text:    'The data highlights two notable periods: a slight increase during the morning hours around 08:00, and a more pronounced concentration in the late afternoon and early evening, peaking between 17:00 and 18:00. It is reasonable to suggest that this pattern may be linked to general urban mobility cycles. These peaks align with typical "rush hour" periods when the streets are generally more crowded. Therefore, the higher frequency of incidents in the afternoon does not necessarily mean the environment itself is more "dangerous" at that time; rather, it likely reflects a higher volume of people and vehicles sharing the space.<br><br>While these figures show us when most collisions occur, they represent only one part of the narrative. To better understand the nature of risk in the city, it is also relevant to look at the demographics of those involved—specifically how the outcome of a collision might differ based on gender.',
         },
         {
             plot:    'pedestrian_fatality_by_sex_plot.html',
