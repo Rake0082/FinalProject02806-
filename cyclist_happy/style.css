@@ -96,6 +96,7 @@ body {
     display: flex;
     gap: 60px;
     margin-top: 40px;
+    justify-content: center;
 }
 
 .choice {
