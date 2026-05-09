@@ -145,11 +145,11 @@ const STORY = {
         {
             plot:    'rf_contributing_factor_pedestrian.html',
             title:   'Contributing Factors: Volume vs. Lethality',
-            caption: 'Figure 7: Contributing factors for pedestrian crashes — how common vs. how lethal. Some causes are frequent but rarely fatal; others are rare but almost always deadly.',
+            caption: 'Contributing factors for pedestrian collisions, comparing total crash volume against the fatality rate per incident. This visualization distinguishes between high-frequency behavioral errors and high-lethality risks.',
             emotion: 'neutral',
-            thought: 'Some of these factors... happen every single day.',
-            heading: 'Why Do Crashes Happen?',
-            text:    'Failure to yield, driver inattention, traffic control disregarded — the contributing factors behind pedestrian crashes tell two different stories: what causes the most crashes, and what causes the deadliest ones.',
+            thought: 'It makes me realize that \'prevention\' means two different things: stopping the everyday crashes and stopping the deadly ones.',
+            heading: 'Common vs. Deadly: Two Different Problems to Solve',
+            text:    'This analysis examines the contributing factors behind collisions, specifically comparing their frequency (Volume) against their severity (Lethality). As identified in our predictive model, the specific behavior of the driver is one of the most critical indicators of whether a crash will result in a fatality.<br><br>The data tells two very different stories. Factors such as Unsafe Speed and Alcohol Involvement have a relatively low volume, but they are among the most lethal. When these factors are present, the likelihood of a pedestrian surviving the impact drops significantly. Conversely, the most common factors — Driver Inattention and Failure to Yield Right-of-Way — occur with much higher frequency but have lower individual fatality rates. Because they happen so often, however, they still represent a massive portion of the city\'s total collisions.<br><br>This distinction is vital for safety prevention. To reach the goal of zero fatalities, enforcement and design must target high-lethality behaviors like speeding. At the same time, to reduce the total number of accidents across the city, we must address the frequent, everyday errors like inattention through better intersection design and public awareness.',
         },
     ],
     motorist: [
