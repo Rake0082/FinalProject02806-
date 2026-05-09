@@ -135,12 +135,12 @@ const STORY = {
         },
         {
             plot:    'rf_ped_action.html',
-            title:   'What Were You Doing When It Happened?',
+            title:   'Fatality Rate by Pedestrian Action',
             caption: 'Figure 6: Fatality rate by pedestrian action at time of crash. Crossing with the signal, jaywalking, or standing still — each carries a different survival rate.',
             emotion: 'thinking',
-            thought: 'Could I have done something differently?',
-            heading: 'Does Your Action Matter?',
-            text:    'Crossing with the signal, jaywalking, or standing still — does what a pedestrian was doing at the moment of impact affect whether they survive? The data reveals striking differences.',
+            thought: 'It makes me think about how much of my safety depends on my own actions versus how well the street is designed to protect me.',
+            heading: 'What Is Behind the Pedestrian\'s Action?',
+            text:    'This visualization explores the relationship between pedestrian behavior at the time of impact and the resulting survival rate. To see the specific data behind each category, you can hover your cursor over the bars to view the total number of incidents and the exact fatality percentage.<br><br>The data indicates that certain high-risk maneuvers, such as walking along a highway against traffic, carry an exceptionally high fatality rate compared to standard urban movements. From an analytical perspective, actions that deviate from established traffic regulations—such as crossing against a signal or being in prohibited areas—significantly increase the severity of a crash.<br><br>However, these patterns also raise important questions about urban design. When non-compliant behavior occurs frequently in specific areas, it may suggest that the current infrastructure does not align with natural pedestrian flow. This is where initiatives like Vision Zero become essential; by using this data, the city can identify whether a "risky" action is a result of individual choice or a sign that a street needs to be redesigned to prioritize human safety over vehicular speed.',
         },
         {
             plot:    'rf_contributing_factor_pedestrian.html',
