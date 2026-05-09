@@ -1,4 +1,4 @@
-const scroller = scrollama();
+let scrollerInstance = null;
 
 const choices       = document.querySelectorAll('.choice');
 const scrollPrompt  = document.getElementById('scroll-prompt');
@@ -16,10 +16,9 @@ const hookTitle     = document.getElementById('hook-title');
 const hookNumber    = document.getElementById('hook-number');
 const hookLabel     = document.getElementById('hook-label');
 
-let currentMode    = "";
-let scrollamaReady = false;
-let suppressThought = false; // true while we want to block the bubble
-let isSwitching    = false;  // true while switching persona — blocks scrollama
+let currentMode     = "";
+let suppressThought = false;
+let isSwitching     = false;
 
 // ── Big hook stat per persona ────────────────────────────────────────────────
 const HOOK = {
@@ -391,15 +390,9 @@ choices.forEach(choice => {
         // Scroll to the story hook so user starts from the top of the new story
         storyHook.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-        // Re-setup scrollama after the new step elements are in the DOM
+        // Re-init scrollama on a fresh instance so new steps are observed cleanly
         requestAnimationFrame(() => {
-            if (!scrollamaReady) {
-                initScrollama();
-                scrollamaReady = true;
-            } else {
-                scroller.setup({ step: '.step', offset: 0.6, debug: false });
-                scroller.resize();
-            }
+            initScrollama();
             // Release block after scroll has settled
             setTimeout(() => { isSwitching = false; }, 1200);
         });
@@ -408,7 +401,11 @@ choices.forEach(choice => {
 
 // ── Scrollama — swap plot and thought on each step ───────────────────────────
 function initScrollama() {
-    scroller
+    if (scrollerInstance) {
+        try { scrollerInstance.destroy(); } catch (e) {}
+    }
+    scrollerInstance = scrollama();
+    scrollerInstance
         .setup({ step: '.step', offset: 0.6, debug: false })
         .onStepEnter(response => {
             if (isSwitching) return;
@@ -420,4 +417,4 @@ function initScrollama() {
         });
 }
 
-window.addEventListener('resize', scroller.resize);
+window.addEventListener('resize', () => { if (scrollerInstance) scrollerInstance.resize(); });
