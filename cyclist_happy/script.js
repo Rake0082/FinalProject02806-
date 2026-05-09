@@ -109,11 +109,11 @@ const STORY = {
         {
             plot:    'bubble_map_pedestrian.html',
             title:   'Pedestrian Danger Zones — NYC',
-            caption: 'Figure 3: Pedestrian danger zones across NYC. Each bubble marks a crash cluster — size shows total crashes, colour shows fatality rate. The deadliest spots are not always where the crowds are.',
+            caption: 'Spatial clustering of pedestrian-involved collisions in New York City. Clusters are formed using a machine learning algorithm that groups incidents within a 200-meter radius. Each cluster displays specific features, including the pedestrian fatality rate, borough, and the top cause of the accidents.',
             emotion: 'surprised',
             thought: 'I walk these streets every day... I had no idea.',
             heading: 'Where It Happens',
-            text:    'Zoom out from time and identity and look at place. Where do pedestrian crashes concentrate across NYC — and are the deadliest clusters the same as the busiest ones?',
+            text:    'While time and demographics provide critical context, the geography of risk is perhaps the most actionable element of traffic safety. We invite you to interact with the map to explore the spatial distribution of pedestrian collisions across New York City. By zooming in and navigating the different boroughs, you can see how accidents are not evenly dispersed but instead form high-density clusters.<br><br>The visualization reveals that certain intersections and corridors are significantly more hazardous than others. While many areas show a high frequency of incidents (indicated by bubble size), some of the most concerning "danger zones" are defined by their elevated fatality rates (indicated by color). These hotspots often emerge along major transit arteries and complex intersections where high-speed vehicular traffic meets heavy pedestrian volume. Exploring these clusters allows us to move from city-wide statistics to the specific streets where the margin for error is smallest.',
         },
         {
             plot:    'rf_feature_importance_pedestrian.html',
