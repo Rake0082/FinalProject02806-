@@ -15,6 +15,7 @@ const thoughtText   = document.getElementById('thought-text');
 const hookTitle     = document.getElementById('hook-title');
 const hookNumber    = document.getElementById('hook-number');
 const hookLabel     = document.getElementById('hook-label');
+const hookText      = document.getElementById('hook-text');
 
 let currentMode     = "";
 let suppressThought = false;
@@ -22,9 +23,9 @@ let isSwitching     = false;
 
 // ── Big hook stat per persona ────────────────────────────────────────────────
 const HOOK = {
-    cyclist:    { stat: '13,000+',  label: 'cyclists injured in NYC between 2012–2023' },
-    pedestrian: { stat: '57,000+',  label: 'pedestrians struck by vehicles in NYC since 2012' },
-    motorist:   { stat: '1.5M+',    label: 'motorist crashes recorded in NYC since 2012' },
+    cyclist:    { stat: '80,215',    label: 'cyclists involved in motor vehicle collisions since 2012',   text: 'Motor vehicle collisions are not accidents — they are the result of a complex interplay of variables, each contributing to an incident in ways that can be measured, understood, and often prevented. Let us explore those reasons through data and see what patterns emerge from a cyclist\'s point of view.' },
+    pedestrian: { stat: '146,845',  label: 'pedestrians involved in motor vehicle collisions since 2012', text: 'Motor vehicle collisions are not accidents — they are the result of a complex interplay of variables, each contributing to an incident in ways that can be measured, understood, and often prevented. Let us explore those reasons through data and see what patterns emerge from a pedestrian\'s point of view.' },
+    motorist:   { stat: '5,705,877', label: 'motorists involved in motor vehicle collisions since 2012',  text: 'Motor vehicle collisions are not accidents — they are the result of a complex interplay of variables, each contributing to an incident in ways that can be measured, understood, and often prevented. Let us explore those reasons through data and see what patterns emerge from a motorist\'s point of view.' },
 };
 
 // ── Story content per persona and step ──────────────────────────────────────
@@ -379,6 +380,7 @@ choices.forEach(choice => {
         if (HOOK[mode]) {
             hookNumber.textContent = HOOK[mode].stat;
             hookLabel.textContent  = HOOK[mode].label;
+            hookText.textContent   = HOOK[mode].text;
         }
 
         // Suppress the thought bubble until the user actually scrolls to a step
