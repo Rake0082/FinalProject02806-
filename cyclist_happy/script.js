@@ -320,7 +320,14 @@ function loadStep(mode, stepIndex, showThought = true) {
         const active = document.querySelector(`.ending-summary[data-persona="${mode}"]`);
         if (active) active.classList.remove('hidden');
         storyEnding.classList.remove('hidden');
-        setThought(null);
+        // Hide thought bubble only once the ending section scrolls into view
+        const obs = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting) {
+                setThought(null);
+                obs.disconnect();
+            }
+        }, { threshold: 0.1 });
+        obs.observe(storyEnding);
     } else {
         storyEnding.classList.add('hidden');
     }
