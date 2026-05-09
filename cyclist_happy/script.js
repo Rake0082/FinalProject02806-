@@ -117,12 +117,12 @@ const STORY = {
         },
         {
             plot:    'rf_feature_importance_pedestrian.html',
-            title:   'What Factors Predict a Fatal Crash?',
+            title:   'Key Factors in Fatal Pedestrian Collisions',
             caption: 'Figure 4: Feature importance from a supervised Random Forest classifier trained to predict whether a pedestrian involved in a crash was killed or survived. The model combines two NYC Open Data sources — one recording crash details (time, location, vehicle types, contributing factors) and one recording person details (age, sex, safety equipment, ejection status) — linked by a shared collision ID. Features include both time-based variables (hour of day, day of week, month) and person- and crash-level variables (age, borough, primary and secondary vehicle type, contributing factor, sex, safety equipment, ejection status, pedestrian location, and pedestrian action). Bar length reflects how strongly each feature predicts a fatal outcome: the longer the bar, the more predictive the feature.',
             emotion: 'thinking',
-            thought: 'So what actually decides whether I make it home?',
+            thought: 'So I can\'t stop getting older, but I can definitely rethink how I cross the street.',
             heading: 'What Makes a Crash Fatal?',
-            text:    'A machine learning model trained on thousands of collisions ranks the factors that most strongly predict whether a pedestrian crash turns deadly. The results challenge some assumptions.',
+            text:    'This analysis identifies the primary factors that determine whether a pedestrian collision results in a fatality. The results reveal a complex interplay between variables we can influence and those we cannot, highlighting where the greatest risks lie.<br><br>A primary predictor is Age. This is largely due to the physical vulnerability associated with older age; while our data suggests that younger individuals are involved in crashes more frequently, these incidents are statistically far more fatal for older pedestrians. Similarly, the Hour of Day remains a critical factor, reinforcing the temporal patterns we observed earlier in the city\'s daily rhythm.<br><br>However, the model also highlights factors where individual behavior and external physics play a decisive role. Pedestrian Action—what a person is doing at the moment of impact—stands out as a significant predictor that is often within one\'s own control. Conversely, Vehicle Type reminds us that the sheer size and nature of the vehicle involved heavily dictates the chance of survival.<br><br>To better understand these dynamics, we will dive deeper into how our own actions and the vehicles we share the road with shape the outcome of a crash.',
         },
         {
             plot:    'rf_vehicle_type_pedestrian.html',
