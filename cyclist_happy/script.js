@@ -184,11 +184,11 @@ const STORY = {
         {
             plot:    'bubble_map_motorist.html',
             title:   'Motorist Danger Zones — NYC',
-            caption: 'Figure 4: Motorist danger zones across NYC. Each bubble marks a crash cluster — size shows total crashes, colour shows fatality rate. The deadliest spots are not always the busiest.',
+            caption: 'Spatial clustering of motorist-involved collisions in New York City. Clusters are formed using a machine learning algorithm that groups incidents within a 200-meter radius. Each cluster displays specific features, including the motorist fatality rate, borough, and the top cause of the accidents.',
             emotion: 'surprised',
             thought: 'I drive these streets every day... I had no idea.',
             heading: 'Where It Happens',
-            text:    'Zoom out from time and look at place. These clusters show where motorist crashes concentrate across NYC — and where the fatal ones tend to land may surprise you.',
+            text:    'Time of day, weather conditions — but now it\'s time to ask where. Some intersections in NYC are consistently more dangerous for motorists than others. Here, it\'s not crash volume that matters — it\'s the fatality rate that determines how dark a spot appears on the map.<br><br>The contrast can be striking. The busiest clusters in Manhattan and Brooklyn log thousands of incidents, yet many of them carry relatively low fatality rates. Elsewhere, smaller and quieter clusters in the outer boroughs tell a very different story — fewer total crashes, but a much higher share of them turn fatal. Busy doesn\'t mean deadly. Quiet doesn\'t mean safe.<br><br>And if you click around, something familiar emerges: the peak crash hours at the most dangerous spots tend to align with the evening rush we saw at the very beginning. The where and the when are not unrelated.<br><br>But the bubbles reveal more than just location and time. Each cluster comes with a top contributing cause and additional context — and that raises a harder question: what actually determines whether a motorist crash turns fatal? So far we\'ve mapped the crashes — now let\'s look at what\'s behind the fatality rate.',
         },
         {
             plot:    'rf_feature_importance_motorist.html',
