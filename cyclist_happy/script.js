@@ -19,6 +19,7 @@ const hookLabel     = document.getElementById('hook-label');
 let currentMode    = "";
 let scrollamaReady = false;
 let suppressThought = false; // true while we want to block the bubble
+let isSwitching    = false;  // true while switching persona — blocks scrollama
 
 // ── Big hook stat per persona ────────────────────────────────────────────────
 const HOOK = {
@@ -320,7 +321,6 @@ function loadStep(mode, stepIndex, showThought = true) {
         const active = document.querySelector(`.ending-summary[data-persona="${mode}"]`);
         if (active) active.classList.remove('hidden');
         storyEnding.classList.remove('hidden');
-        setTimeout(() => storyEnding.scrollIntoView({ behavior: 'smooth', block: 'start' }), 400);
     } else {
         storyEnding.classList.add('hidden');
     }
@@ -376,6 +376,10 @@ choices.forEach(choice => {
 
         // Suppress the thought bubble until the user actually scrolls to a step
         suppressThought = true;
+        isSwitching = true;
+
+        // Hide ending section from previous persona
+        document.getElementById('story-ending').classList.add('hidden');
 
         // Render the correct text steps for this persona
         renderSteps(mode);
@@ -384,16 +388,20 @@ choices.forEach(choice => {
         loadStep(mode, 0, false);
         showCharacter();
 
+        // Scroll to the story hook so user starts from the top of the new story
+        storyHook.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
         // Re-setup scrollama after the new step elements are in the DOM
         requestAnimationFrame(() => {
             if (!scrollamaReady) {
                 initScrollama();
                 scrollamaReady = true;
             } else {
-                // Re-setup picks up new DOM steps; handler stays attached
                 scroller.setup({ step: '.step', offset: 0.6, debug: false });
                 scroller.resize();
             }
+            // Release block after scroll has settled
+            setTimeout(() => { isSwitching = false; }, 1200);
         });
     });
 });
@@ -403,6 +411,7 @@ function initScrollama() {
     scroller
         .setup({ step: '.step', offset: 0.6, debug: false })
         .onStepEnter(response => {
+            if (isSwitching) return;
             document.querySelectorAll('.step').forEach(s => s.classList.remove('is-active'));
             response.element.classList.add('is-active');
             const stepIndex = parseInt(response.element.getAttribute('data-step'), 10);
