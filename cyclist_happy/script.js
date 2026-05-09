@@ -211,11 +211,11 @@ const STORY = {
         {
             plot:    'rf_contributing_factor_motorist.html',
             title:   'Contributing Factors: Volume vs. Lethality',
-            caption: 'Figure 7: Contributing factors — how common vs. how lethal. Some causes are frequent but rarely fatal; others are rare but almost always deadly.',
+            caption: 'Contributing factors for motorist collisions, comparing total crash volume against the fatality rate per incident. This visualization distinguishes between high-frequency behavioral errors and high-lethality risks.',
             emotion: 'neutral',
             thought: 'Some of these factors... I\'ve been guilty of them myself.',
-            heading: 'Why Do Crashes Happen?',
-            text:    'Driver distraction, speeding, failing to yield — the contributing factors behind motorist crashes tell two different stories: what causes the most crashes, and what causes the deadliest ones.',
+            heading: 'Common vs. Deadly: Two Different Problems to Solve',
+            text:    'This analysis examines the contributing factors behind motorist collisions, specifically comparing their frequency (Volume) against their severity (Lethality). As identified in our predictive model, driver behavior is one of the most critical indicators of whether a crash will result in a fatality.<br><br>The data tells two very different stories. Unsafe Speed and Traffic Control Disregarded have a relatively low crash volume, but they are the most lethal factors in the dataset. When speeding is involved, the fatality rate for motorists reaches 0.32% — the highest of any contributing factor in this group. That figure may seem small, but it is striking when placed in context: for pedestrians struck by a speeding vehicle, the equivalent fatality rate is 3.37% — more than ten times higher. The same behavior behind the wheel carries vastly different consequences depending on who bears the impact. Conversely, Driver Inattention and Distraction is by far the most common factor, yet its individual fatality rate is much lower. Because it occurs so frequently, however, it still accounts for a massive share of the city\'s total collisions.<br><br>This distinction points toward a clear policy conclusion. To reduce total crash volume, the most effective interventions target everyday behavioral errors like inattention — through better intersection design, clearer signage, and public awareness. But to reduce fatalities, the focus must shift to the high-lethality behaviors: speeding and disregarding traffic controls. These are precisely the behaviors that infrastructure can address directly — through speed bumps, reduced speed limits, redesigned junctions, and in some cases, car-free streets where pedestrian and cyclist safety is the priority.',
         },
     ],
 };
