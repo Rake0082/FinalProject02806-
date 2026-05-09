@@ -92,7 +92,7 @@ const STORY = {
         {
             plot:    'pedestrian_hourly_plot.html',
             title:   'Crashes by Hour of Day',
-            caption: 'Hourly distribution of pedestrian-involved collisions in New York City. The data includes all recorded pedestrians involved in a vehicle collision, grouped by the hour of the day (0–23) to show the hourly trend.',
+            caption: 'Figure 1: Hourly distribution of pedestrian-involved collisions in New York City. The data includes all recorded pedestrians involved in a vehicle collision, grouped by the hour of the day (0–23) to show the hourly trend.',
             emotion: 'thinking',
             thought: 'So, the 5 PM rush is a literal headache. Maybe I\'ll just start working from home... or at 3 AM?',
             heading: 'The Rhythm of the Day',
@@ -101,7 +101,7 @@ const STORY = {
         {
             plot:    'pedestrian_fatality_by_sex_plot.html',
             title:   'Fatality Rate by Sex',
-            caption: 'Fatality rate per 1,000 individuals involved, compared by sex. The data shows that while both genders are involved in collisions at nearly the same rate, the likelihood of a fatal outcome is higher for males.',
+            caption: 'Figure 2: Fatality rate per 1,000 individuals involved, compared by sex. The data shows that while both genders are involved in collisions at nearly the same rate, the likelihood of a fatal outcome is higher for males.',
             emotion: 'surprised',
             thought: 'Equal representation in the streets, but men are clearly winning the race no one wants to lead.',
             heading: 'Who Is Most at Risk?',
@@ -110,7 +110,7 @@ const STORY = {
         {
             plot:    'bubble_map_pedestrian.html',
             title:   'Pedestrian Danger Zones — NYC',
-            caption: 'Spatial clustering of pedestrian-involved collisions in New York City. Clusters are formed using a machine learning algorithm that groups incidents within a 200-meter radius. Each cluster displays specific features, including the pedestrian fatality rate, borough, and the top cause of the accidents.',
+            caption: 'Figure 3: Spatial clustering of pedestrian-involved collisions in New York City. Clusters are formed using a machine learning algorithm that groups incidents within a 200-meter radius. Each cluster displays specific features, including the pedestrian fatality rate, borough, and the top cause of the accidents.',
             emotion: 'surprised',
             thought: 'I walk these streets every day... I had no idea.',
             heading: 'Where It Happens',
@@ -146,7 +146,7 @@ const STORY = {
         {
             plot:    'rf_contributing_factor_pedestrian.html',
             title:   'Contributing Factors: Volume vs. Lethality',
-            caption: 'Contributing factors for pedestrian collisions, comparing total crash volume against the fatality rate per incident. This visualization distinguishes between high-frequency behavioral errors and high-lethality risks.',
+            caption: 'Figure 7: Contributing factors for pedestrian collisions, comparing total crash volume against the fatality rate per incident. This visualization distinguishes between high-frequency behavioral errors and high-lethality risks.',
             emotion: 'neutral',
             thought: 'It makes me realize that \'prevention\' means two different things: stopping the everyday crashes and stopping the deadly ones.',
             heading: 'Common vs. Deadly: Two Different Problems to Solve',
@@ -157,7 +157,7 @@ const STORY = {
         {
             plot:    'motorist_hourly_plot.html',
             title:   'Crashes by Hour of Day',
-            caption: 'Hourly distribution of motorist-involved collisions in New York City. The data includes all recorded motorists involved in a vehicle collision, grouped by the hour of the day (0–23) to show the hourly trend.',
+            caption: 'Figure 1: Hourly distribution of motorist-involved collisions in New York City. The data includes all recorded motorists involved in a vehicle collision, grouped by the hour of the day (0–23) to show the hourly trend.',
             emotion: 'thinking',
             thought: 'Rush hour is stressful, but is it actually the most dangerous?',
             heading: 'The Rhythm of the Day',
@@ -166,7 +166,7 @@ const STORY = {
         {
             plot:    'risk_vs_reality_motorist_plot.html',
             title:   'Risk vs. Reality',
-            caption: 'Percentage of daily motorist collisions (solid line) overlaid with sampled traffic volume (dashed line), both expressed as a share of the daily total, by hour of day (0–23). The shaded area marks hours where the collision share exceeds the traffic volume share. Note: traffic volume data is based on sampled counts and serves as an approximation of general flow patterns, not an exact measure.',
+            caption: 'Figure 2: Percentage of daily motorist collisions (solid line) overlaid with sampled traffic volume (dashed line), both expressed as a share of the daily total, by hour of day (0–23). The shaded area marks hours where the collision share exceeds the traffic volume share. Note: traffic volume data is based on sampled counts and serves as an approximation of general flow patterns, not an exact measure.',
             emotion: 'surprised',
             thought: 'Wait — late at night is when I\'m really at risk?',
             heading: 'More Traffic, More Crashes — But Not in Equal Measure',
@@ -175,7 +175,7 @@ const STORY = {
         {
             plot:    'weather_effect_motorist_plot.html',
             title:   'Weather Effect on Daily Crashes',
-            caption: 'Average number of daily motorist-involved collisions on clear/normal days compared to winter storm days, identified by road salt usage in NYC. Salt usage data is used as a proxy for days with snow or ice on the roads, sourced from NYC Department of Sanitation records.',
+            caption: 'Figure 3: Average number of daily motorist-involved collisions on clear/normal days compared to winter storm days, identified by road salt usage in NYC. Salt usage data is used as a proxy for days with snow or ice on the roads, sourced from NYC Department of Sanitation records.',
             emotion: 'scared',
             thought: 'I knew snow days felt more dangerous — now I have the numbers to prove it.',
             heading: 'When the Weather Turns',
@@ -184,7 +184,7 @@ const STORY = {
         {
             plot:    'bubble_map_motorist.html',
             title:   'Motorist Danger Zones — NYC',
-            caption: 'Spatial clustering of motorist-involved collisions in New York City. Clusters are formed using a machine learning algorithm that groups incidents within a 200-meter radius. Each cluster displays specific features, including the motorist fatality rate, borough, and the top cause of the accidents.',
+            caption: 'Figure 4: Spatial clustering of motorist-involved collisions in New York City. Clusters are formed using a machine learning algorithm that groups incidents within a 200-meter radius. Each cluster displays specific features, including the motorist fatality rate, borough, and the top cause of the accidents.',
             emotion: 'surprised',
             thought: 'Can you find the street where you live?',
             heading: 'Where It Happens',
@@ -202,7 +202,7 @@ const STORY = {
         {
             plot:    'rf_vehicle_type_motorist.html',
             title:   'Fatality Rate by Vehicle Type',
-            caption: 'Fatality rate per 1,000 motorists involved, by primary vehicle type. Only vehicle types with a sufficient number of recorded incidents are included. Hover over each bar to see the exact fatality rate and total number of individuals involved in that category.',
+            caption: 'Figure 6: Fatality rate per 1,000 motorists involved, by primary vehicle type. Only vehicle types with a sufficient number of recorded incidents are included. Hover over each bar to see the exact fatality rate and total number of individuals involved in that category.',
             emotion: 'surprised',
             thought: 'My car is my shield.',
             heading: 'Does Your Vehicle Matter?',
@@ -211,7 +211,7 @@ const STORY = {
         {
             plot:    'rf_contributing_factor_motorist.html',
             title:   'Contributing Factors: Volume vs. Lethality',
-            caption: 'Contributing factors for motorist collisions, comparing total crash volume against the fatality rate per incident. This visualization distinguishes between high-frequency behavioral errors and high-lethality risks.',
+            caption: 'Figure 7: Contributing factors for motorist collisions, comparing total crash volume against the fatality rate per incident. This visualization distinguishes between high-frequency behavioral errors and high-lethality risks.',
             emotion: 'neutral',
             thought: 'Some of these factors... I\'ve been guilty of them myself.',
             heading: 'Common vs. Deadly: Two Different Problems to Solve',
