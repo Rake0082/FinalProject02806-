@@ -372,10 +372,6 @@ choices.forEach(choice => {
         choice.classList.remove('fade-out');
         choice.classList.add('selected-shake');
 
-        storyHook.classList.remove('hidden');
-        scrollyCont.classList.remove('hidden');
-        scrollPrompt.classList.remove('hidden');
-
         hookTitle.innerText = `The streets of NYC from a ${mode}'s perspective`;
         if (HOOK[mode]) {
             hookNumber.textContent = HOOK[mode].stat;
@@ -397,15 +393,21 @@ choices.forEach(choice => {
         loadStep(mode, 0, false);
         showCharacter();
 
-        // Scroll to the story hook so user starts from the top of the new story
-        storyHook.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Wait for wiggle to finish + brief pause, then reveal and scroll
+        setTimeout(() => {
+            storyHook.classList.remove('hidden');
+            scrollyCont.classList.remove('hidden');
+            scrollPrompt.classList.remove('hidden');
 
-        // Re-init scrollama on a fresh instance so new steps are observed cleanly
-        requestAnimationFrame(() => {
-            initScrollama();
-            // Release block after scroll has settled
-            setTimeout(() => { isSwitching = false; }, 1200);
-        });
+            storyHook.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            // Re-init scrollama on a fresh instance so new steps are observed cleanly
+            requestAnimationFrame(() => {
+                initScrollama();
+                // Release block after scroll has settled
+                setTimeout(() => { isSwitching = false; }, 1200);
+            });
+        }, 1200);
     });
 });
 
