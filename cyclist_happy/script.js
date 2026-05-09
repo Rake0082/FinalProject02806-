@@ -157,11 +157,11 @@ const STORY = {
         {
             plot:    'motorist_hourly_plot.html',
             title:   'Crashes by Hour of Day',
-            caption: 'Figure 1: Motorist crashes by hour of day. Rush hour dominates crash volume — but the deadliest crashes happen long after traffic has cleared.',
+            caption: 'Hourly distribution of motorist-involved collisions in New York City. The data includes all recorded motorists involved in a vehicle collision, grouped by the hour of the day (0–23) to show the hourly trend.',
             emotion: 'thinking',
             thought: 'Rush hour is stressful, but is it actually the most dangerous?',
             heading: 'The Rhythm of the Day',
-            text:    'When do crashes actually happen? Looking at collisions hour by hour, a clear pattern emerges — and it may not be what you\'d expect.',
+            text:    'The data highlights two notable periods: a concentration during the morning commute around 08:00, and a more pronounced peak in the late afternoon and early evening, between 17:00 and 18:00. This pattern closely follows the rhythm of urban traffic — these hours correspond to the busiest periods on NYC roads, when the greatest number of vehicles are in circulation. Therefore, the higher frequency of collisions during these windows does not necessarily indicate that driving is inherently more dangerous at these times; rather, it reflects the sheer volume of vehicles sharing the road simultaneously.<br><br>While these figures reveal when most collisions occur, timing is only one dimension of the story. Behind each collision lies a combination of contributing factors — from vehicle type to driver behavior. To understand the true nature of motorist risk, we must look beyond the clock and examine the forces that shape the outcome of a crash.',
         },
         {
             plot:    'risk_vs_reality_motorist_plot.html',
