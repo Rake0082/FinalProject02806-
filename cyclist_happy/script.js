@@ -175,11 +175,11 @@ const STORY = {
         {
             plot:    'weather_effect_motorist_plot.html',
             title:   'Weather Effect on Daily Crashes',
-            caption: 'Figure 3: Weather and motorist crashes. Winter storm days see far more crashes on average than clear days — slippery roads and reduced visibility change the game.',
+            caption: 'Average number of daily motorist-involved collisions on clear/normal days compared to winter storm days, identified by road salt usage in NYC. Salt usage data is used as a proxy for days with snow or ice on the roads, sourced from NYC Department of Sanitation records.',
             emotion: 'scared',
-            thought: 'Snow days feel dangerous... and the data backs me up.',
+            thought: 'I knew snow days felt more dangerous — now I have the numbers to prove it.',
             heading: 'When the Weather Turns',
-            text:    'You already drive more carefully in snow — but does it help? Winter storm days with road salt use see a dramatic spike in average daily crashes compared to clear conditions.',
+            text:    'So far we have examined when and where collisions happen — but to avoid drawing false conclusions, we must also consider the conditions under which they occur. Weather is one such underlying factor, and it plays a measurable role in the daily collision count.<br><br>The data used here does not contain direct weather measurements. Instead, days with road salt usage — recorded by the NYC Department of Sanitation — are used as a proxy for days with snow or ice on the roads. This means that milder forms of bad weather, such as rain or fog, are not captured. That said, the signal is clear: on days when salt is used, the average number of daily motorist collisions rises from 302 to 380 — an increase of roughly 26%. Even with the limitation of the proxy, the pattern is consistent and hard to ignore.<br><br>This does not mean that winter weather alone causes collisions — other factors such as reduced visibility, longer braking distances, and changes in driver behavior all interact. But the data does confirm that adverse road conditions are a meaningful part of the picture, and one that must be accounted for when interpreting collision patterns across the year.',
         },
         {
             plot:    'bubble_map_motorist.html',
