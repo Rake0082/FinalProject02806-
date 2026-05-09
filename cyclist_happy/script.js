@@ -129,9 +129,9 @@ const STORY = {
             title:   'Fatality Rate by Vehicle Type',
             caption: 'Figure 5: Fatality rate by vehicle type for pedestrian crashes. Not all vehicles are equally dangerous to a person on foot — what hits you matters.',
             emotion: 'surprised',
-            thought: 'The type of vehicle that hits me changes my odds of surviving?',
+            thought: 'It makes sense that mass matters, but seeing the jump in fatality rates for buses and trucks is still eye-opening.',
             heading: 'Does the Vehicle Matter?',
-            text:    'When a pedestrian is struck, does it matter what kind of vehicle hit them? The fatality rate varies sharply by vehicle type — and some results are hard to ignore.',
+            text:    'This chart illustrates the fatality rate for pedestrians based on the primary type of vehicle involved in the collision. To get a more detailed view, you can hover your cursor over each bar to see the specific fatality rate and the total number of individuals involved in each category.<br><br>The data highlights a stark physical reality: pedestrians are small and entirely unprotected when facing large, heavy machinery. While standard passenger cars like Sedans and Taxis are involved in a high number of total incidents, they have some of the lowest fatality rates. In contrast, being struck by a Box Truck or a Bus is significantly more dangerous. The sheer mass and height of these larger vehicles mean that when a collision occurs, the outcome is far more likely to be fatal.',
         },
         {
             plot:    'rf_ped_action.html',
