@@ -81,7 +81,7 @@ const STORY = {
         {
             plot:    'rf_contributing_factor_cyclist.html',
             title:   'Contributing Factors: Volume vs. Lethality',
-            caption: 'Figure 6: Contributing factors for cyclist crashes — how common vs. how lethal. Some causes are frequent but rarely fatal; others are rare but almost always deadly.',
+            caption: 'Figure 6: Contributing factors for cyclist collisions, comparing total crash volume against the fatality rate per incident. This visualization distinguishes between high-frequency behavioral errors and high-lethality risks.',
             emotion: 'neutral',
             thought: 'Some of these factors... happen every single day out there.',
             heading: 'Why Do Crashes Happen?',
