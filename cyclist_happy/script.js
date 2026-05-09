@@ -320,6 +320,7 @@ function loadStep(mode, stepIndex, showThought = true) {
         const active = document.querySelector(`.ending-summary[data-persona="${mode}"]`);
         if (active) active.classList.remove('hidden');
         storyEnding.classList.remove('hidden');
+        setThought(null);
     } else {
         storyEnding.classList.add('hidden');
     }
