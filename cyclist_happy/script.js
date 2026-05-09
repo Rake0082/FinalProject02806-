@@ -166,11 +166,11 @@ const STORY = {
         {
             plot:    'risk_vs_reality_motorist_plot.html',
             title:   'Risk vs. Reality',
-            caption: 'Figure 2: Risk vs. reality for motorists. Crash volume and fatality rate tell very different stories — the hours you worry about may not be the ones that should worry you.',
+            caption: 'Percentage of daily motorist collisions (solid line) overlaid with sampled traffic volume (dashed line), both expressed as a share of the daily total, by hour of day (0–23). The shaded area marks hours where the collision share exceeds the traffic volume share. Note: traffic volume data is based on sampled counts and serves as an approximation of general flow patterns, not an exact measure.',
             emotion: 'surprised',
             thought: 'Wait — late at night is when I\'m really at risk?',
-            heading: 'Risk vs. Reality — Are You as Safe as You Think?',
-            text:    'Motorists make up the majority of road users — but does that mean they bear the most risk? This chart separates how common crashes are from how deadly they actually are.',
+            heading: 'More Traffic, More Crashes — But Not in Equal Measure',
+            text:    'The collision distribution across the day closely mirrors the underlying traffic volume — both rise during the morning commute and peak in the late afternoon. This alignment suggests that the number of crashes at any given hour is, to a significant degree, a function of how many vehicles are on the road. In that sense, the afternoon peak is not inherently more dangerous: it is simply busier.<br><br>However, the visualization reveals something more nuanced. During the afternoon hours, the shaded area — marking "Disproportionate Danger" — indicates that the share of daily collisions exceeds the share of traffic volume at those same hours. In other words, while the afternoon sees more traffic, which partly explains the higher crash count, the collision rate climbs even faster than the traffic does. This suggests that heavy traffic conditions may themselves be a contributing factor: congestion, time pressure, frequent lane changes, and driver frustration can all elevate the likelihood of a collision beyond what volume alone would predict.<br><br>The takeaway is not simply that more cars mean more crashes. It is that the relationship between traffic density and collision risk is not linear — and that the afternoon hours carry a disproportionate share of the total daily crash burden.',
         },
         {
             plot:    'weather_effect_motorist_plot.html',
