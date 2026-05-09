@@ -399,8 +399,6 @@ choices.forEach(choice => {
             scrollyCont.classList.remove('hidden');
             scrollPrompt.classList.remove('hidden');
 
-            storyHook.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
             // Re-init scrollama on a fresh instance so new steps are observed cleanly
             requestAnimationFrame(() => {
                 initScrollama();
