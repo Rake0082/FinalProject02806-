@@ -38,7 +38,7 @@ const STORY = {
             caption: 'Figure 1: Cyclist crashes by hour of day. The evening rush (16–18h) sees the highest volume, but late-night crashes carry a disproportionately high fatality rate.',
             emotion: 'thinking',
             thought: 'Rush hour... that\'s when cars stop looking out for me.',
-            heading: 'The Rhythm of the Streets',
+            heading: 'The Rhythm of the Day',
             text:    'Rush hour fills the streets — and the collision reports. Cyclist crashes peak sharply between 4 and 6 PM, when commuters flood the city. The pattern is clear: the more people on the road, the more danger for cyclists.<br><br>But the hour of day only tells us when within a single day. What if the danger shifts across the entire year? Does summer bring more cyclists — and more crashes? Let\'s follow the calendar.',
         },
         {
@@ -94,7 +94,7 @@ const STORY = {
             caption: 'Hourly distribution of pedestrian-involved collisions in New York City. The data includes all recorded pedestrians involved in a vehicle collision, grouped by the hour of the day (0–23) to show the hourly trend.',
             emotion: 'thinking',
             thought: 'So, the 5 PM rush is a literal headache. Maybe I\'ll just start working from home... or at 3 AM?',
-            heading: 'The Rhythm of the Streets',
+            heading: 'The Rhythm of the Day',
             text:    'The data highlights two notable periods: a slight increase during the morning hours around 08:00, and a more pronounced concentration in the late afternoon and early evening, peaking between 17:00 and 18:00. It is reasonable to suggest that this pattern may be linked to general urban mobility cycles. These peaks align with typical "rush hour" periods when the streets are generally more crowded. Therefore, the higher frequency of incidents in the afternoon does not necessarily mean the environment itself is more "dangerous" at that time; rather, it likely reflects a higher volume of people and vehicles sharing the space.<br><br>While these figures show us when most collisions occur, they represent only one part of the narrative. To better understand the nature of risk in the city, it is also relevant to look at the demographics of those involved—specifically how the outcome of a collision might differ based on gender.',
         },
         {
@@ -159,7 +159,7 @@ const STORY = {
             caption: 'Figure 1: Motorist crashes by hour of day. Rush hour dominates crash volume — but the deadliest crashes happen long after traffic has cleared.',
             emotion: 'thinking',
             thought: 'Rush hour is stressful, but is it actually the most dangerous?',
-            heading: 'The Rhythm of the Streets',
+            heading: 'The Rhythm of the Day',
             text:    'When do crashes actually happen? Looking at collisions hour by hour, a clear pattern emerges — and it may not be what you\'d expect.',
         },
         {
