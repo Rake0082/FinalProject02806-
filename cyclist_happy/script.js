@@ -202,11 +202,11 @@ const STORY = {
         {
             plot:    'rf_vehicle_type_motorist.html',
             title:   'Fatality Rate by Vehicle Type',
-            caption: 'Figure 6: Fatality rate by vehicle type. Not all vehicles carry equal risk — what you\'re driving matters more than you might think.',
+            caption: 'Fatality rate per 1,000 motorists involved, by primary vehicle type. Only vehicle types with a sufficient number of recorded incidents are included. Hover over each bar to see the exact fatality rate and total number of individuals involved in that category.',
             emotion: 'surprised',
-            thought: 'The type of car I\'m in changes my odds?',
+            thought: 'A motorcycle is basically just a very fast way to be unprotected — I\'ll stick to my car.',
             heading: 'Does Your Vehicle Matter?',
-            text:    'Behind the wheel of a sedan, a truck, or a motorcycle — does it change your risk? The fatality rate varies sharply by vehicle type, and some results are hard to ignore.',
+            text:    'This chart illustrates the fatality rate for motorists based on the primary vehicle they were driving at the time of the collision. You can hover over each bar to see the specific fatality rate and the total number of individuals involved in each category.<br><br>The most striking result is the dominance of Motorcycles at the top of the chart. With a fatality rate of 1.09%, motorcycles stand far apart from every other vehicle type — and the reason is straightforward: motorcyclists have no protective shell around them. In that sense, a motorcyclist is closer in vulnerability to a pedestrian or cyclist than to a car driver. The vehicle body is precisely what keeps most motorists safe in a collision, and removing it changes the risk entirely.<br><br>This becomes even clearer when comparing across road user types. For pedestrians, the fatality rate when struck by a Box Truck reaches 5.45%. For a motorist inside a vehicle involved in the same type of collision, that figure drops to just 0.01%. The car body absorbs the impact in a way the human body simply cannot.<br><br>Even the highest motorist fatality rate — motorcycles at 1.09% — remains well below the rates faced by unprotected road users. The data makes one thing clear: the greatest protective factor for a motorist is the vehicle itself.',
         },
         {
             plot:    'rf_contributing_factor_motorist.html',
