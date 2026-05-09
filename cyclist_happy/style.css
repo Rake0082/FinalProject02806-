@@ -325,6 +325,15 @@ body {
     color: var(--accent-color);
 }
 
+.ref-list a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.ref-list a:hover {
+    text-decoration: underline;
+}
+
 #restart-btn {
     font-family: var(--font-header);
     font-size: 0.85rem;
