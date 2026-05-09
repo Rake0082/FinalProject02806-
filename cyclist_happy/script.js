@@ -99,12 +99,12 @@ const STORY = {
         },
         {
             plot:    'pedestrian_fatality_by_sex_plot.html',
-            title:   'Does Gender Change Your Risk?',
-            caption: 'Figure 2: Fatality rate by sex. Given that a crash happened, are men or women more likely to die? The answer differs by how you get around.',
+            title:   'Fatality Rate by Sex',
+            caption: 'Fatality rate per 1,000 individuals involved, compared by sex. The data shows that while both genders are involved in collisions at nearly the same rate, the likelihood of a fatal outcome is higher for males.',
             emotion: 'surprised',
-            thought: 'I never thought my gender would be a factor.',
+            thought: 'Equal representation in the streets, but men are clearly winning the race no one wants to lead.',
             heading: 'Who Is Most at Risk?',
-            text:    'Given that a crash has already happened, does gender influence survival? Across all road users the gap is visible — but for pedestrians, the difference is particularly striking.',
+            text:    'When examining the demographics of pedestrian collisions in New York City, the distribution between genders is remarkably balanced, with females accounting for 50.6% and males for 49.4% of those involved. This near-equal split provides a solid baseline for comparing the fatality rates between the two groups.<br><br>While the involvement rate is almost identical, the outcome of these collisions tells a different story. The data shows a clear disparity: the fatality rate for men is significantly higher than for women. This suggests that even though both genders are involved in vehicle collisions at similar frequencies, the incidents involving men are statistically more likely to result in a fatal outcome.',
         },
         {
             plot:    'bubble_map_pedestrian.html',
