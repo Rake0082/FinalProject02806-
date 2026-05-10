@@ -72,7 +72,7 @@ const STORY = {
         {
             plot:    'rf_vehicle_type_cyclist.html',
             title:   'Fatality Rate by Vehicle Type',
-            caption: 'Figure 5: Fatality rate by primary vehicle type involved in cyclist crashes. Only the top 12 vehicle types by crash volume are shown, each with a minimum of 50 crashes. Bars show the percentage of crashes involving that vehicle type that resulted in the cyclist\'s death, sorted from least to most deadly. Hover to see the exact fatality rate and total crash count.',
+            caption: 'Figure 5: Fatality rate by primary vehicle type for cyclist crashes. Top 12 vehicle types by crash volume are shown (minimum 50 crashes each), sorted from least to most deadly. Hover to see the exact fatality rate and crash count.',
             emotion: 'surprised',
             thought: 'The type of vehicle that hits me changes my odds of surviving?',
             heading: 'Does the Vehicle Matter?',
@@ -128,7 +128,7 @@ const STORY = {
         {
             plot:    'rf_vehicle_type_pedestrian.html',
             title:   'Fatality Rate by Vehicle Type',
-            caption: 'Figure 5: Fatality rate by vehicle type for pedestrian crashes. Not all vehicles are equally dangerous to a person on foot — what hits you matters.',
+            caption: 'Figure 5: Fatality rate by primary vehicle type for pedestrian crashes. Top vehicle types by crash volume are shown (minimum 50 crashes each), sorted from least to most deadly. Hover to see the exact fatality rate and crash count.',
             emotion: 'surprised',
             thought: 'It makes sense that mass matters, but seeing the jump in fatality rates for buses and trucks is still eye-opening.',
             heading: 'Does the Vehicle Matter?',
@@ -166,7 +166,7 @@ const STORY = {
         {
             plot:    'risk_vs_reality_motorist_plot.html',
             title:   'Risk vs. Reality',
-            caption: 'Figure 2: Percentage of daily motorist collisions (solid line) overlaid with sampled traffic volume (dashed line), both expressed as a share of the daily total, by hour of day (0–23). The shaded area marks hours where the collision share exceeds the traffic volume share. Note: traffic volume data is based on sampled counts and serves as an approximation of general flow patterns, not an exact measure.',
+            caption: 'Figure 2: Daily collision share (solid line) versus traffic volume share (dashed line), both expressed as a percentage of the daily total, by hour of day (0–23). The shaded area marks hours where crash share exceeds traffic volume share. Traffic volume is based on sampled counts and serves as an approximation of general flow patterns.',
             emotion: 'surprised',
             thought: 'Data is complex — we always need to think about the underlying patterns.',
             heading: 'More Traffic, More Crashes — But Not in Equal Measure',
@@ -202,7 +202,7 @@ const STORY = {
         {
             plot:    'rf_vehicle_type_motorist.html',
             title:   'Fatality Rate by Vehicle Type',
-            caption: 'Figure 6: Fatality rate per 1,000 motorists involved, by primary vehicle type. Only vehicle types with a sufficient number of recorded incidents are included. Hover over each bar to see the exact fatality rate and total number of individuals involved in that category.',
+            caption: 'Figure 6: Fatality rate by primary vehicle type for motorist crashes. Vehicle types with fewer than 50 recorded incidents are excluded, sorted from least to most deadly. Hover to see the exact fatality rate and crash count.',
             emotion: 'surprised',
             thought: 'My car is my shield.',
             heading: 'Does Your Vehicle Matter?',
