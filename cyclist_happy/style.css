@@ -396,6 +396,7 @@ body {
 }
 
 .plot-wrapper {
+    position: relative;
     width: 100%;
     flex: 1;
     background: white;
@@ -406,6 +407,23 @@ body {
     flex-direction: column;
     overflow: hidden;
     min-height: 0;
+}
+
+.plot-wrapper::before {
+    content: '↗ Interactive';
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    z-index: 10;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    color: var(--accent-color);
+    background: rgba(249, 247, 242, 0.88);
+    border: 1px solid #e0dbd4;
+    border-radius: 999px;
+    padding: 3px 10px;
+    pointer-events: none;
 }
 
 #plot-frame { width: 100%; flex: 1; border: none; min-height: 0; transition: opacity 0.25s ease; }
