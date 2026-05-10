@@ -85,7 +85,7 @@ const STORY = {
             emotion: 'neutral',
             thought: 'Some of these factors... happen every single day out there.',
             heading: 'Why Do Crashes Happen?',
-            text:    'Failure to yield, driver inattention, dooring — the contributing factors behind cyclist crashes tell two different stories: what causes the most crashes, and what causes the deadliest ones.',
+            text:    'This analysis examines the contributing factors behind cyclist collisions, specifically comparing their frequency (Volume) against their severity (Lethality). As identified in our predictive model, driver behavior is one of the most critical indicators of whether a crash will result in a fatality — and that is reflected clearly here.<br><br>The data tells two very different stories. Factors such as Unsafe Speed and Alcohol Involvement occur relatively infrequently, but when they are present, the fatality rate rises sharply. These are the conditions under which a cyclist is most likely not to survive an impact. Conversely, the most common factors — Driver Inattention, Failure to Yield Right-of-Way, and Dooring — occur with much higher frequency but carry lower individual fatality rates. Because they happen so often, however, they still account for the vast majority of total cyclist collisions in the city.<br><br>This distinction matters for how we think about prevention. Reducing the total number of crashes requires addressing the everyday, high-frequency errors — through better infrastructure, protected bike lanes, and driver awareness. But eliminating fatalities requires targeting the high-lethality behaviors: speed and impairment. Both problems are real, and both require their own response.',
         },
     ],
     pedestrian: [
