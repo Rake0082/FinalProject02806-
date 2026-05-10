@@ -54,7 +54,7 @@ const STORY = {
         {
             plot:    'bubble_map_cyclist.html',
             title:   'Cyclist Danger Zones — NYC',
-            caption: 'Figure 3: Interactive map of cyclist fatal crash clusters across NYC. Each bubble represents a geographic cluster built exclusively from fatal crashes — bubble size reflects the total number of fatal crashes in that cluster, colour reflects fatality rate (light pink = low, dark red = high). Hover over a bubble to see: the nearest intersection, total crashes, fatality rate, year-over-year trend (↑ increasing / → stable / ↓ decreasing), peak crash hour, most common contributing factor, median age of those involved, and borough.',
+            caption: 'Figure 3: Spatial clustering of fatal cyclist collisions in New York City. Clusters are formed using a machine learning algorithm and include only crashes resulting in a fatality. Bubble size reflects the total number of fatal crashes in each cluster, and colour reflects the fatality rate (light pink = low, dark red = high). Each cluster displays specific features, including the nearest intersection, fatality rate, peak crash hour, most common contributing factor, median age of those involved, and borough.',
             emotion: 'surprised',
             thought: 'Find your street. Is it on here?',
             heading: 'Where It Happens',
