@@ -36,7 +36,7 @@ const STORY = {
         {
             plot:    'cyclist_hourly_plot.html',
             title:   'Crashes by Hour of Day',
-            caption: 'Figure 1: Cyclist crashes by hour of day. The evening rush (16–18h) sees the highest volume, but late-night crashes carry a disproportionately high fatality rate.',
+            caption: 'Figure 1: Hourly distribution of cyclist-involved collisions in New York City. The data includes all recorded cyclists involved in a vehicle collision, grouped by the hour of the day (0–23) to show the hourly trend.',
             emotion: 'thinking',
             thought: 'Rush hour... that\'s when cars stop looking out for me.',
             heading: 'The Rhythm of the Day',
