@@ -128,7 +128,7 @@ const STORY = {
         {
             plot:    'rf_vehicle_type_pedestrian.html',
             title:   'Fatality Rate by Vehicle Type',
-            caption: 'Figure 5: Fatality rate by primary vehicle type for pedestrian crashes. Top vehicle types by crash volume are shown (minimum 50 crashes each), sorted from least to most deadly. Hover to see the exact fatality rate and crash count.',
+            caption: 'Figure 5: Fatality rate by primary vehicle type for pedestrian crashes. Top 12 vehicle types by crash volume are shown (minimum 50 crashes each), sorted from least to most deadly. Hover to see the exact fatality rate and crash count.',
             emotion: 'surprised',
             thought: 'It makes sense that mass matters, but seeing the jump in fatality rates for buses and trucks is still eye-opening.',
             heading: 'Does the Vehicle Matter?',
@@ -202,7 +202,7 @@ const STORY = {
         {
             plot:    'rf_vehicle_type_motorist.html',
             title:   'Fatality Rate by Vehicle Type',
-            caption: 'Figure 6: Fatality rate by primary vehicle type for motorist crashes. Vehicle types with fewer than 50 recorded incidents are excluded, sorted from least to most deadly. Hover to see the exact fatality rate and crash count.',
+            caption: 'Figure 6: Fatality rate by primary vehicle type for motorist crashes. Top 12 vehicle types by crash volume are shown (minimum 50 crashes each), sorted from least to most deadly. Hover to see the exact fatality rate and crash count.',
             emotion: 'surprised',
             thought: 'My car is my shield.',
             heading: 'Does Your Vehicle Matter?',
