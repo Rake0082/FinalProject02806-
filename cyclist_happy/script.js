@@ -132,7 +132,7 @@ const STORY = {
             emotion: 'surprised',
             thought: 'A box truck doesn\'t give you a chance.',
             heading: 'Does the Vehicle Matter?',
-            text:    'The data highlights a stark physical reality: pedestrians are entirely unprotected, and what hits them determines their odds of survival. Standard passenger cars — sedans and taxis — account for the largest share of total incidents, yet they carry some of the lowest fatality rates. Box trucks present a very different picture: a pedestrian struck by one faces a fatality rate more than five times higher than when struck by a sedan. Buses follow a similar pattern. The sheer mass and height of larger vehicles mean that when a collision occurs, the outcome is far more likely to be fatal.',
+            text:    'The data highlights a stark physical reality: pedestrians are entirely unprotected, and what hits them determines their odds of survival. Sedans are involved in over 52,000 pedestrian crashes — by far the most common vehicle in the dataset — yet carry a fatality rate of just 0.83%. Box trucks are involved in only 715 pedestrian crashes, but with a fatality rate of 5.45%, a pedestrian struck by one is more than six times as likely to die. SUV / Station Wagons sit in between: nearly 40,000 crashes and a fatality rate of 1.36% — already nearly double that of a sedan. The sheer mass and height of larger vehicles mean that when a collision occurs, the outcome is far more likely to be fatal.',
         },
         {
             plot:    'rf_ped_action.html',
