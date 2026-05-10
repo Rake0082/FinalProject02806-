@@ -49,7 +49,7 @@ const STORY = {
             emotion: 'thinking',
             thought: 'More cyclists in summer, more crashes. Honestly? I\'d rather stay home when it snows anyway.',
             heading: 'The Summer Surge',
-            text:    'No surprise here — cyclist crashes peak in summer and drop in winter. But with more cyclists on the road in summer, a higher crash count is almost inevitable. Volume isn\'t the same as danger.<br><br>So let\'s shift the lens. Instead of volume, we look at fatalities. And instead of asking when, we ask where — are there parts of NYC where cyclists are systematically more at risk than others?',
+            text:    'The data shows a clear seasonal pattern: cyclist crashes reach their highest levels during the summer months and decline significantly through autumn and winter. This distribution is closely tied to ridership levels — when more cyclists are on the road, a higher collision count is a natural consequence of increased exposure. An elevated crash volume in summer does not therefore indicate that cycling is more dangerous per trip; it largely reflects the greater number of trips being made.<br><br>This distinction between volume and risk is an important one. To move beyond raw crash counts and understand where the genuine danger lies, we shift our focus from when and how many to where. Are there specific locations in New York City where cyclists are systematically more at risk — regardless of the season?',
         },
         {
             plot:    'bubble_map_cyclist.html',
