@@ -40,7 +40,7 @@ const STORY = {
             emotion: 'thinking',
             thought: 'Rush hour... that\'s when cars stop looking out for me.',
             heading: 'The Rhythm of the Day',
-            text:    'Rush hour fills the streets — and the collision reports. Cyclist crashes peak sharply between 4 and 6 PM, when commuters flood the city. The pattern is clear: the more people on the road, the more danger for cyclists.<br><br>But the hour of day only tells us when within a single day. What if the danger shifts across the entire year? Does summer bring more cyclists — and more crashes? Let\'s follow the calendar.',
+            text:    'The data highlights two notable periods: a moderate increase during the morning hours around 08:00, and a more pronounced concentration in the late afternoon and early evening, peaking between 16:00 and 18:00. This pattern is closely tied to the rhythm of urban mobility — these hours correspond to the busiest periods on NYC streets, when the greatest number of cyclists and vehicles share the road. Therefore, the higher frequency of collisions during the afternoon does not necessarily indicate that cycling is inherently more dangerous at these times; rather, it reflects the increased volume of road users in circulation simultaneously.<br><br>While these figures reveal when most collisions occur, time of day is only one dimension of the picture. Collision patterns may also shift across the year — and for cyclists in particular, seasonal variation in ridership could play a meaningful role. That is what we examine next.',
         },
         {
             plot:    'seasonality_cyclist_focus_plot.html',
