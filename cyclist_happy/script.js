@@ -45,7 +45,7 @@ const STORY = {
         {
             plot:    'seasonality_cyclist_focus_plot.html',
             title:   'Seasonal Patterns in Cyclist Crashes',
-            caption: 'Figure 2: Cyclist crashes as a share of total daily crashes, by month. The summer peak reflects more cyclists on the road — not necessarily more danger per ride.',
+            caption: 'Figure 2: Monthly distribution of collisions by road user type in New York City, expressed as a percentage of total annual crashes. Each line represents one road user group — cyclist, pedestrian, and motorist — grouped by month to illustrate seasonal variation across the year.',
             emotion: 'thinking',
             thought: 'More cyclists in summer, more crashes. Honestly? I\'d rather stay home when it snows anyway.',
             heading: 'The Summer Surge',
