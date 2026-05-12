@@ -40,7 +40,7 @@ const STORY = {
             emotion: 'thinking',
             thought: 'Rush hour... that\'s when cars stop looking out for me.',
             heading: 'The Rhythm of the Day',
-            text:    'The data highlights two notable periods: a moderate increase during the morning hours around 08:00, and a more pronounced concentration in the late afternoon and early evening, peaking between 16:00 and 18:00. This pattern is closely tied to the rhythm of urban mobility — these hours correspond to the busiest periods on NYC streets, when the greatest number of cyclists and vehicles share the road. Therefore, the higher frequency of collisions during the afternoon does not necessarily indicate that cycling is inherently more dangerous at these times; rather, it reflects the increased volume of road users in circulation simultaneously.<br><br>Collision patterns may also shift across the year — and for cyclists in particular, seasonal variation in ridership could play a meaningful role.',
+            text:    'The data highlights two notable periods: a moderate increase during the morning hours around 08:00, and a more pronounced concentration in the late afternoon and early evening, peaking between 16:00 and 18:00. This pattern is closely tied to the rhythm of urban mobility — these hours correspond to the busiest periods on New York City streets, when the greatest number of cyclists and vehicles share the road. Therefore, the higher frequency of collisions during the afternoon does not necessarily indicate that cycling is inherently more dangerous at these times; rather, it reflects the increased volume of road users in circulation simultaneously.<br><br>Collision patterns may also shift across the year — and for cyclists in particular, seasonal variation in ridership could play a meaningful role.',
         },
         {
             plot:    'seasonality_cyclist_focus_plot.html',
@@ -53,12 +53,12 @@ const STORY = {
         },
         {
             plot:    'bubble_map_cyclist.html',
-            title:   'Cyclist Danger Zones — NYC',
+            title:   'Cyclist Danger Zones — New York City',
             caption: 'Figure 3: Spatial clustering of cyclist-involved collisions in New York City. Clusters are identified using DBSCAN, a density-based algorithm that groups crashes within a 200-metre radius, requiring a minimum of 30 crashes to form a cluster. Bubble size reflects the total number of crashes in each cluster; colour reflects the fatality rate (light pink = low, dark red = high). Hovering over a bubble reveals: nearest intersection, total crash count, fatality rate, year-on-year trend, peak crash hour, most common contributing factor (the reported primary cause of the crash, e.g. driver inattention or unsafe speed), median age of those involved, and borough.',
             emotion: 'surprised',
             thought: 'Find your street. Is it on here?',
             heading: 'Where It Happens',
-            text:    'Time of day, time of year — but now it\'s time to ask where. Some intersections in NYC are consistently more dangerous for cyclists than others. Here, it\'s not crash volume that matters — it\'s the fatality rate that determines how dark a spot appears on the map.<br><br>The contrast can be striking. Jay Street &amp; Tillary Street in Brooklyn recorded nearly 11,000 crashes — one of the busiest intersections in the dataset — yet its fatality rate is just 0.30%. Bruckner Boulevard &amp; Rosedale Avenue in the Bronx presents a very different picture: only 34 crashes, but a fatality rate of 8.82%. This illustrates that crash volume and fatality rate do not necessarily move together — a high number of incidents at a location does not automatically indicate a high likelihood of a fatal outcome.<br><br>Hovering over the clusters reveals something familiar: peak crash hours at the most dangerous spots tend to fall between 16:00 and 18:00 — the same evening rush identified at the start of this story. Location and timing are not independent.',
+            text:    'Time of day, time of year — but now it\'s time to ask where. Some intersections in New York City are consistently more dangerous for cyclists than others. Here, it\'s not crash volume that matters — it\'s the fatality rate that determines how dark a spot appears on the map.<br><br>The contrast can be striking. Jay Street &amp; Tillary Street in Brooklyn recorded nearly 11,000 crashes — one of the busiest intersections in the dataset — yet its fatality rate is just 0.30%. Bruckner Boulevard &amp; Rosedale Avenue in the Bronx presents a very different picture: only 34 crashes, but a fatality rate of 8.82%. This illustrates that crash volume and fatality rate do not necessarily move together — a high number of incidents at a location does not automatically indicate a high likelihood of a fatal outcome.<br><br>Hovering over the clusters reveals something familiar: peak crash hours at the most dangerous spots tend to fall between 16:00 and 18:00 — the same evening rush identified at the start of this story. Location and timing are not independent.',
         },
         {
             plot:    'rf_feature_importance_cyclist.html',
@@ -96,7 +96,7 @@ const STORY = {
             emotion: 'thinking',
             thought: 'I walk home at 5 PM every day. I never thought about what that means statistically.',
             heading: 'The Rhythm of the Day',
-            text:    'The data highlights two notable periods: a moderate increase during the morning hours around 08:00, and a more pronounced concentration in the late afternoon and early evening, peaking between 17:00 and 18:00. This pattern is closely tied to the rhythm of urban mobility — these hours correspond to the busiest periods on NYC streets, when the greatest number of pedestrians and vehicles share the same space. The higher frequency of collisions during the afternoon does not therefore indicate that the environment is inherently more dangerous at those hours; it reflects the increased volume of people in circulation simultaneously.<br><br>But timing alone does not determine who is most at risk. The same streets are shared by men and women in roughly equal numbers — yet their outcomes are not the same.',
+            text:    'The data highlights two notable periods: a moderate increase during the morning hours around 08:00, and a more pronounced concentration in the late afternoon and early evening, peaking between 17:00 and 18:00. This pattern is closely tied to the rhythm of urban mobility — these hours correspond to the busiest periods on New York City streets, when the greatest number of pedestrians and vehicles share the same space. The higher frequency of collisions during the afternoon does not therefore indicate that the environment is inherently more dangerous at those hours; it reflects the increased volume of people in circulation simultaneously.<br><br>But timing alone does not determine who is most at risk. The same streets are shared by men and women in roughly equal numbers — yet their outcomes are not the same.',
         },
         {
             plot:    'pedestrian_fatality_by_sex_plot.html',
@@ -109,7 +109,7 @@ const STORY = {
         },
         {
             plot:    'bubble_map_pedestrian.html',
-            title:   'Pedestrian Danger Zones — NYC',
+            title:   'Pedestrian Danger Zones — New York City',
             caption: 'Figure 3: Spatial clustering of pedestrian-involved collisions in New York City. Clusters are identified using DBSCAN, a density-based algorithm that groups crashes within a 200-metre radius, requiring a minimum of 30 crashes to form a cluster. Bubble size reflects the total number of crashes in each cluster; colour reflects the fatality rate (light pink = low, dark red = high). Hovering over a bubble reveals: nearest intersection, total crash count, fatality rate, year-on-year trend, peak crash hour, most common contributing factor (the reported primary cause of the crash, e.g. driver inattention or unsafe speed), median age of those involved, and borough.',
             emotion: 'surprised',
             thought: 'Find your street. Is it on here?',
@@ -161,7 +161,7 @@ const STORY = {
             emotion: 'thinking',
             thought: 'Rush hour is stressful, but is it actually the most dangerous?',
             heading: 'The Rhythm of the Day',
-            text:    'The data highlights two notable periods: a concentration during the morning commute around 08:00, and a more pronounced peak in the late afternoon and early evening, between 17:00 and 18:00. This pattern closely follows the rhythm of urban traffic — these hours correspond to the busiest periods on NYC roads, when the greatest number of vehicles are in circulation. The higher frequency of collisions during these windows does not therefore indicate that driving is inherently more dangerous at those hours; it reflects the sheer volume of vehicles sharing the road simultaneously.<br><br>But timing is only one dimension. Behind each collision lies a combination of factors — and understanding the true shape of motorist risk means looking beyond the clock.',
+            text:    'The data highlights two notable periods: a concentration during the morning commute around 08:00, and a more pronounced peak in the late afternoon and early evening, between 17:00 and 18:00. This pattern closely follows the rhythm of urban traffic — these hours correspond to the busiest periods on New York City roads, when the greatest number of vehicles are in circulation. The higher frequency of collisions during these windows does not therefore indicate that driving is inherently more dangerous at those hours; it reflects the sheer volume of vehicles sharing the road simultaneously.<br><br>But timing is only one dimension. Behind each collision lies a combination of factors — and understanding the true shape of motorist risk means looking beyond the clock.',
         },
         {
             plot:    'risk_vs_reality_motorist_plot.html',
@@ -175,15 +175,15 @@ const STORY = {
         {
             plot:    'weather_effect_motorist_plot.html',
             title:   'Weather Effect on Daily Crashes',
-            caption: 'Figure 3: Average number of daily motorist-involved collisions on clear/normal days compared to winter storm days, identified by road salt usage in NYC. Salt usage data is used as a proxy for days with snow or ice on the roads, sourced from NYC Department of Sanitation records.',
+            caption: 'Figure 3: Average number of daily motorist-involved collisions on clear/normal days compared to winter storm days, identified by road salt usage in New York City. Salt usage data is used as a proxy for days with snow or ice on the roads, sourced from New York City Department of Sanitation records.',
             emotion: 'scared',
             thought: 'Snow days always felt tense behind the wheel. Turns out that feeling was right.',
             heading: 'When the Weather Turns',
-            text:    'Beyond the time of day and traffic volume, weather is another underlying factor worth examining — one we know can have a direct influence on driving conditions and collision risk.<br><br>The data used here does not contain direct weather measurements. Instead, days with road salt usage — recorded by the NYC Department of Sanitation — serve as a proxy for days with snow or ice on the roads. This means that milder forms of bad weather, such as rain or fog, are not captured by this measure. That said, the signal from the data is clear: on days when salt is used, the average number of daily motorist collisions rises from 302 to 380 — an increase of roughly 26%. Even given the limitation of the proxy, the pattern is consistent and worth taking seriously.',
+            text:    'Beyond the time of day and traffic volume, weather is another underlying factor worth examining — one we know can have a direct influence on driving conditions and collision risk.<br><br>The data used here does not contain direct weather measurements. Instead, days with road salt usage — recorded by the New York City Department of Sanitation — serve as a proxy for days with snow or ice on the roads. This means that milder forms of bad weather, such as rain or fog, are not captured by this measure. That said, the signal from the data is clear: on days when salt is used, the average number of daily motorist collisions rises from 302 to 380 — an increase of roughly 26%. Even given the limitation of the proxy, the pattern is consistent and worth taking seriously.',
         },
         {
             plot:    'bubble_map_motorist.html',
-            title:   'Motorist Danger Zones — NYC',
+            title:   'Motorist Danger Zones — New York City',
             caption: 'Figure 4: Spatial clustering of motorist-involved collisions in New York City. Clusters are identified using DBSCAN, a density-based algorithm that groups crashes within a 75-metre radius, requiring a minimum of 30 crashes to form a cluster. Bubble size reflects the total number of crashes in each cluster; colour reflects the fatality rate (light pink = low, dark red = high). Hovering over a bubble reveals: nearest intersection, total crash count, fatality rate, year-on-year trend, peak crash hour, most common contributing factor (the reported primary cause of the crash, e.g. driver inattention or unsafe speed), median age of those involved, and borough.',
             emotion: 'surprised',
             thought: 'Find your street. Is it on here?',
@@ -372,7 +372,7 @@ choices.forEach(choice => {
         choice.classList.remove('fade-out');
         choice.classList.add('selected-shake');
 
-        hookTitle.innerText = `The streets of NYC from a ${mode}'s perspective`;
+        hookTitle.innerText = `The streets of New York City from a ${mode}'s perspective`;
         if (HOOK[mode]) {
             hookNumber.textContent = HOOK[mode].stat;
             hookLabel.textContent  = HOOK[mode].label;
