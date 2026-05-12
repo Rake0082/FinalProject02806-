@@ -54,7 +54,7 @@ const STORY = {
         {
             plot:    'bubble_map_cyclist.html',
             title:   'Cyclist Danger Zones — NYC',
-            caption: 'Figure 3: Spatial clustering of cyclist-involved collisions in New York City. Clusters are identified using DBSCAN, a density-based algorithm that groups crashes within a 200-metre radius, requiring a minimum of 30 crashes to form a cluster. Bubble size reflects the total number of crashes in each cluster; colour reflects the fatality rate (light pink = low, dark red = high). Hovering over a bubble reveals: nearest intersection, total crash count, fatality rate, year-on-year trend, peak crash hour, most common contributing factor, median age of those involved, and borough.',
+            caption: 'Figure 3: Spatial clustering of cyclist-involved collisions in New York City. Clusters are identified using DBSCAN, a density-based algorithm that groups crashes within a 200-metre radius, requiring a minimum of 30 crashes to form a cluster. Bubble size reflects the total number of crashes in each cluster; colour reflects the fatality rate (light pink = low, dark red = high). Hovering over a bubble reveals: nearest intersection, total crash count, fatality rate, year-on-year trend, peak crash hour, most common contributing factor (the reported primary cause of the crash, e.g. driver inattention or unsafe speed), median age of those involved, and borough.',
             emotion: 'surprised',
             thought: 'Find your street. Is it on here?',
             heading: 'Where It Happens',
@@ -110,7 +110,7 @@ const STORY = {
         {
             plot:    'bubble_map_pedestrian.html',
             title:   'Pedestrian Danger Zones — NYC',
-            caption: 'Figure 3: Spatial clustering of pedestrian-involved collisions in New York City. Clusters are identified using DBSCAN, a density-based algorithm that groups crashes within a 200-metre radius, requiring a minimum of 30 crashes to form a cluster. Bubble size reflects the total number of crashes in each cluster; colour reflects the fatality rate (light pink = low, dark red = high). Hovering over a bubble reveals: nearest intersection, total crash count, fatality rate, year-on-year trend, peak crash hour, most common contributing factor, median age of those involved, and borough.',
+            caption: 'Figure 3: Spatial clustering of pedestrian-involved collisions in New York City. Clusters are identified using DBSCAN, a density-based algorithm that groups crashes within a 200-metre radius, requiring a minimum of 30 crashes to form a cluster. Bubble size reflects the total number of crashes in each cluster; colour reflects the fatality rate (light pink = low, dark red = high). Hovering over a bubble reveals: nearest intersection, total crash count, fatality rate, year-on-year trend, peak crash hour, most common contributing factor (the reported primary cause of the crash, e.g. driver inattention or unsafe speed), median age of those involved, and borough.',
             emotion: 'surprised',
             thought: 'Find your street. Is it on here?',
             heading: 'Where It Happens',
@@ -184,7 +184,7 @@ const STORY = {
         {
             plot:    'bubble_map_motorist.html',
             title:   'Motorist Danger Zones — NYC',
-            caption: 'Figure 4: Spatial clustering of motorist-involved collisions in New York City. Clusters are identified using DBSCAN, a density-based algorithm that groups crashes within a 75-metre radius, requiring a minimum of 30 crashes to form a cluster. Bubble size reflects the total number of crashes in each cluster; colour reflects the fatality rate (light pink = low, dark red = high). Hovering over a bubble reveals: nearest intersection, total crash count, fatality rate, year-on-year trend, peak crash hour, most common contributing factor, median age of those involved, and borough.',
+            caption: 'Figure 4: Spatial clustering of motorist-involved collisions in New York City. Clusters are identified using DBSCAN, a density-based algorithm that groups crashes within a 75-metre radius, requiring a minimum of 30 crashes to form a cluster. Bubble size reflects the total number of crashes in each cluster; colour reflects the fatality rate (light pink = low, dark red = high). Hovering over a bubble reveals: nearest intersection, total crash count, fatality rate, year-on-year trend, peak crash hour, most common contributing factor (the reported primary cause of the crash, e.g. driver inattention or unsafe speed), median age of those involved, and borough.',
             emotion: 'surprised',
             thought: 'Find your street. Is it on here?',
             heading: 'Where It Happens',
